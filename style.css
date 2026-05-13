@@ -1605,3 +1605,206 @@ footer {
     font-size: 26px;
   }
 }
+/* =========================
+   Mobile Fix: compact layout
+========================= */
+
+@media (max-width: 768px) {
+  /* 整体避免横向溢出 */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* 导航栏：压成一行，横向滑动 */
+  .nav {
+    padding: 10px 4%;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .logo {
+    flex: 0 0 auto;
+    font-size: 16px;
+  }
+
+  .nav-right {
+    flex: 1;
+    min-width: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-links {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 18px;
+    padding-bottom: 0;
+    white-space: nowrap;
+  }
+
+  .nav-links a {
+    flex: 0 0 auto;
+    font-size: 13px;
+  }
+
+  .theme-btn {
+    flex: 0 0 auto;
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+
+  /* 隐藏滚动条，让导航干净一点 */
+  .nav::-webkit-scrollbar,
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav,
+  .nav-links {
+    scrollbar-width: none;
+  }
+
+  /* 页面间距整体压缩 */
+  .page-section {
+    padding: 82px 6% 46px;
+    min-height: auto;
+  }
+
+  .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+  }
+
+  .section-heading p {
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  /* 首页：照片和文字不要隔太远 */
+  .intro-screen {
+    min-height: auto;
+    padding-top: 82px;
+    padding-bottom: 42px;
+  }
+
+  .home-layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .home-photo-wrap {
+    width: 78%;
+    max-width: 280px;
+    height: 350px;
+    margin: 0 auto;
+    border-radius: 26px;
+  }
+
+  .intro-inner {
+    text-align: center;
+    padding: 0;
+  }
+
+  .title-en,
+  .title-cn {
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .intro-greeting {
+    font-size: 15px;
+    letter-spacing: 4px;
+  }
+
+  .display-name,
+  .chinese-name {
+    font-size: clamp(46px, 14vw, 68px);
+    line-height: 1;
+  }
+
+  .intro-subtitle {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .home-actions {
+    justify-content: center;
+    margin-top: 18px;
+  }
+
+  .scroll-hint {
+    margin-top: 32px;
+  }
+
+  /* About 卡片不要太低 */
+  .flip-card-scroll {
+    margin-top: 24px;
+  }
+
+  .flip-card {
+    flex: 0 0 76vw;
+    height: 360px;
+  }
+
+  /* 实习经历卡片 */
+  .experience-card {
+    flex: 0 0 84vw;
+  }
+
+  /* 教育经历 */
+  .education-card {
+    padding: 22px;
+  }
+
+  .edu-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .edu-header h3 {
+    font-size: 23px;
+  }
+
+  .edu-degree {
+    font-size: 14px;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .edu-content {
+    grid-template-columns: 1fr;
+  }
+
+  /* 技能地图 */
+  .skill-map {
+    grid-template-columns: 1fr;
+  }
+
+  /* 反馈和联系 */
+  .feedback-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback-box,
+  .contact-mini-card {
+    padding: 22px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
