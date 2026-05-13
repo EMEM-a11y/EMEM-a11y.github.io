@@ -1327,3 +1327,281 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* =========================
+   Mobile Optimization
+========================= */
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* 导航栏 */
+  .nav {
+    padding: 12px 5%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 17px;
+  }
+
+  .nav-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 16px;
+    padding-bottom: 4px;
+  }
+
+  .nav-links a {
+    flex: 0 0 auto;
+    font-size: 13px;
+  }
+
+  .theme-btn {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+
+  /* 手机不用星星光标 */
+  .custom-cursor {
+    display: none;
+  }
+
+  body.custom-cursor-enabled {
+    cursor: auto;
+  }
+
+  /* 页面整体 */
+  .page-section {
+    padding: 120px 6% 64px;
+    min-height: auto;
+  }
+
+  .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .section-heading h2 {
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+  }
+
+  .section-heading p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* 首页：左右布局改成上下 */
+  .intro-screen {
+    min-height: auto;
+    padding-top: 135px;
+    text-align: center;
+  }
+
+  .home-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .home-photo-wrap {
+    width: 82%;
+    max-width: 300px;
+    height: 390px;
+    margin: 0 auto;
+    border-radius: 28px;
+  }
+
+  .intro-inner {
+    padding: 0;
+    text-align: center;
+  }
+
+  .title-en,
+  .title-cn {
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .intro-greeting {
+    font-size: 17px;
+    letter-spacing: 3px;
+  }
+
+  .display-name {
+    font-size: clamp(48px, 15vw, 72px);
+    letter-spacing: -1px;
+  }
+
+  .chinese-name {
+    font-size: clamp(48px, 15vw, 72px);
+    letter-spacing: 1px;
+  }
+
+  .intro-subtitle {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .home-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 22px;
+  }
+
+  .home-btn {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .scroll-hint {
+    margin-top: 48px;
+  }
+
+  /* 关于我翻转卡片 */
+  .flip-card-scroll {
+    max-width: 100%;
+    gap: 18px;
+    padding-bottom: 24px;
+  }
+
+  .flip-card {
+    flex: 0 0 76vw;
+    height: 390px;
+  }
+
+  .flip-card-back {
+    padding: 24px;
+  }
+
+  .flip-card-back h3 {
+    font-size: 20px;
+  }
+
+  .flip-card-back p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  /* 实习经历横向卡片 */
+  .experience-scroll {
+    max-width: 100%;
+    gap: 18px;
+  }
+
+  .experience-card {
+    flex: 0 0 84vw;
+    padding: 22px;
+  }
+
+  .experience-card h3 {
+    font-size: 20px;
+  }
+
+  .case-point {
+    padding: 12px 14px;
+  }
+
+  .case-point p,
+  .case-point li {
+    font-size: 13.5px;
+  }
+
+  /* 教育经历 */
+  .education-card {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .edu-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .edu-header h3 {
+    font-size: 24px;
+  }
+
+  .edu-degree {
+    text-align: left;
+    white-space: normal;
+    font-size: 14px;
+  }
+
+  .edu-content {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .edu-block {
+    padding: 18px;
+  }
+
+  .edu-block p {
+    font-size: 14px;
+  }
+
+  /* 能力地图 */
+  .skill-map {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .skill-card {
+    padding: 24px;
+  }
+
+  .skill-card h3 {
+    font-size: 21px;
+  }
+
+  .skill-card p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .skill-tags span,
+  .mini-tags span {
+    font-size: 12.5px;
+    padding: 6px 10px;
+  }
+
+  /* 反馈 + 联系 */
+  .feedback-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .feedback-box,
+  .contact-mini-card {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback-form textarea {
+    min-height: 130px;
+  }
+
+  .contact-mini-card h3 {
+    font-size: 26px;
+  }
+}
