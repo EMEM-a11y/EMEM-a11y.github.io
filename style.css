@@ -372,6 +372,34 @@ body.custom-cursor-enabled textarea {
   transform: translateY(-2px);
 }
 
+.hr-quick-entry {
+  display: block;
+  max-width: 430px;
+  margin-top: 24px;
+  padding: 16px 18px;
+  border-left: 4px solid var(--purple);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 16px 40px rgba(124, 58, 237, 0.10);
+  transition: 0.25s;
+}
+
+.hr-quick-entry span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--purple);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.hr-quick-entry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 46px rgba(124, 58, 237, 0.16);
+}
+
 .scroll-hint {
   display: inline-block;
   margin-top: 90px;
@@ -580,6 +608,14 @@ body.custom-cursor-enabled textarea {
   margin: 0;
 }
 
+.flip-detail-list {
+  margin-top: 14px;
+  padding-left: 18px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
 .about-hint {
   max-width: 1180px;
   margin: 6px auto 0;
@@ -608,6 +644,15 @@ body.custom-cursor-enabled textarea {
   color: #d1d5db;
 }
 
+.dark-mode .hr-quick-entry {
+  background: rgba(30, 41, 59, 0.88);
+  color: #e5e7eb;
+}
+
+.dark-mode .flip-detail-list {
+  color: #d1d5db;
+}
+
 /* 手机适配 */
 @media (max-width: 760px) {
   .flip-card {
@@ -625,6 +670,49 @@ body.custom-cursor-enabled textarea {
   background:
     radial-gradient(circle at 88% 12%, rgba(167, 139, 250, 0.18), transparent 24%),
     #fbfaff;
+}
+
+.impact-grid {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.impact-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.impact-card span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  background: var(--purple-soft);
+  color: var(--purple);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.impact-card strong {
+  display: block;
+  color: var(--text-main);
+  font-size: 22px;
+  line-height: 1.35;
+  margin: 14px 0 8px;
+}
+
+.impact-card p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.75;
 }
 
 .experience-scroll {
@@ -882,7 +970,154 @@ body.custom-cursor-enabled textarea {
 
 
 /* =========================
-   10. Feedback + Contact
+   10. JD Match
+========================= */
+
+.jd-match-section {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(124, 58, 237, 0.12), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #fbfaff 100%);
+}
+
+.jd-match-section .section-heading {
+  max-width: 960px;
+}
+
+.jd-match-section .section-heading p {
+  max-width: 960px;
+}
+
+.jd-match-layout {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 26px;
+  align-items: stretch;
+}
+
+.jd-input-card,
+.jd-result-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 34px;
+}
+
+.jd-input-card label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--text-main);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.jd-input-card textarea {
+  width: 100%;
+  min-height: 300px;
+  resize: vertical;
+  padding: 16px;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 18px;
+  outline: none;
+  background: #fbfaff;
+  color: var(--text-main);
+  line-height: 1.8;
+}
+
+.jd-input-card textarea:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+}
+
+.jd-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.btn.secondary {
+  background: #ffffff;
+  color: var(--purple);
+  border: 1px solid rgba(124, 58, 237, 0.26);
+}
+
+.jd-privacy {
+  margin-top: 16px;
+  color: var(--text-light);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.jd-score {
+  color: var(--purple);
+  font-size: clamp(52px, 7vw, 82px);
+  line-height: 1;
+  font-weight: 900;
+}
+
+.jd-summary {
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.jd-result-block {
+  margin-top: 24px;
+}
+
+.jd-result-block h3 {
+  margin-bottom: 8px;
+  color: var(--text-main);
+  font-size: 18px;
+}
+
+.jd-result-block ul {
+  padding-left: 18px;
+  color: var(--text-muted);
+}
+
+.jd-result-block p {
+  color: var(--text-muted);
+}
+
+.dark-mode .jd-match-section {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(167, 139, 250, 0.18), transparent 28%),
+    #111827;
+}
+
+.dark-mode .jd-input-card,
+.dark-mode .jd-result-card {
+  background: #1f2937;
+  border-color: rgba(167, 139, 250, 0.18);
+}
+
+.dark-mode .jd-input-card label,
+.dark-mode .jd-result-block h3 {
+  color: #f9fafb;
+}
+
+.dark-mode .jd-input-card textarea,
+.dark-mode .btn.secondary {
+  background: #111827;
+  color: #f9fafb;
+  border-color: rgba(167, 139, 250, 0.28);
+}
+
+.dark-mode .jd-summary,
+.dark-mode .jd-result-block ul,
+.dark-mode .jd-result-block p,
+.dark-mode .jd-privacy {
+  color: #d1d5db;
+}
+
+
+/* =========================
+   11. Feedback + Contact
 ========================= */
 
 .feedback-section {
@@ -1134,6 +1369,7 @@ footer {
 }
 
 .dark-mode .about-text-card,
+.dark-mode .impact-card,
 .dark-mode .experience-card,
 .dark-mode .education-card,
 .dark-mode .skill-card,
@@ -1146,6 +1382,14 @@ footer {
 .dark-mode .case-point,
 .dark-mode .edu-block {
   background: #111827;
+}
+
+.dark-mode .impact-card strong {
+  color: #f9fafb;
+}
+
+.dark-mode .impact-card p {
+  color: #d1d5db;
 }
 
 .dark-mode .feedback-form input,
@@ -1214,6 +1458,7 @@ footer {
 ========================= */
 
 @media (max-width: 1000px) {
+    .jd-match-layout,
     .feedback-layout {
   grid-template-columns: 1fr;
 }
@@ -1463,9 +1708,29 @@ footer {
     margin-top: 22px;
   }
 
+  .hr-quick-entry {
+    margin: 20px auto 0;
+    text-align: left;
+  }
+
   .home-btn {
     padding: 10px 18px;
     font-size: 13px;
+  }
+
+  .jd-match-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jd-input-card,
+  .jd-result-card {
+    padding: 22px;
+    border-radius: 24px;
   }
 
   .scroll-hint {
