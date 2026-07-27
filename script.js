@@ -102,21 +102,21 @@ document.addEventListener("DOMContentLoaded", () => {
       label: "产品与需求分析",
       weight: 24,
       terms: ["产品", "prd", "需求", "原型", "流程", "用户", "竞品", "b端", "b 端", "验收", "项目管理"],
-      evidence: "主页展示了 B 端产品实习、需求拆解、流程梳理、PRD 表达和产品复盘经历。",
+      evidence: "相关经历包括 B 端产品实习、需求拆解、流程梳理、PRD 表达和产品复盘。",
       gap: "可追问：是否独立写过 PRD，如何判断需求优先级，如何定义验收标准。"
     },
     {
       label: "数据分析与指标意识",
       weight: 24,
       terms: ["数据", "分析", "excel", "sql", "指标", "口径", "清洗", "复盘", "报表", "bi", "转化"],
-      evidence: "主页展示了数据底座、指标口径、数据清洗、业务复盘和物流数据分析经历。",
+      evidence: "相关经历包括数据底座、指标口径、数据清洗、业务复盘和物流数据分析。",
       gap: "可追问：SQL / BI 熟练度，是否能独立完成数据提取、清洗、分析和可视化。"
     },
     {
       label: "AI 与自动化工作流",
       weight: 22,
       terms: ["ai", "aigc", "agent", "prompt", "自动化", "工作流", "大模型", "llm", "智能体", "效率"],
-      evidence: "主页展示了战败工单归因、需求处理 Agent、营销 Agent 和 AIGC 图文工作流。",
+      evidence: "相关经历包括战败工单归因、需求处理 Agent、营销 Agent 和 AIGC 图文工作流。",
       gap: "可追问：AI 在项目中承担的具体环节、输出如何校验、如何从 demo 落到业务流程。"
     },
     {
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
       label: "运营协作与落地",
       weight: 14,
       terms: ["运营", "operation", "operations", "协作", "沟通", "推进", "sop", "反馈", "活动", "落地"],
-      evidence: "主页展示了平台运营、SOP 培训、用户反馈整理和跨角色推进经验。",
+      evidence: "相关经历包括平台运营、SOP 培训、用户反馈整理和跨角色推进。",
       gap: "可追问：跨部门推进方式、遇到阻力如何处理、复盘结果如何沉淀。"
     }
   ];
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const resetJdResult = () => {
     jdScore.textContent = "--";
-    jdSummary.textContent = "粘贴 JD 后点击分析，我会从产品、数据、AI、金融和运营协作几个方向做快速评估。";
+    jdSummary.textContent = "粘贴 JD 后点击分析，从产品、数据、AI、金融和运营协作几个方向评估匹配度。";
     renderList(matchedKeywords, ["等待分析"]);
     renderList(gapKeywords, ["等待分析"]);
     jdPitch.textContent = "等待分析";
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gapKeywords,
       gapGroups.length
         ? gapGroups.map((group) => group.gap)
-        : ["这份 JD 覆盖了主页中的主要能力方向，面试可重点核实项目真实性、参与深度和结果数据。"]
+        : ["这份 JD 与主要能力方向高度重合，面试可重点核实项目真实性、参与深度和结果数据。"]
     );
 
     jdPitch.textContent = matchedGroups.length
