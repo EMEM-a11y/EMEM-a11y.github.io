@@ -3,19 +3,19 @@
 ========================= */
 
 :root {
-  --purple: #7c3aed;
-  --purple-dark: #5b21b6;
-  --purple-soft: #ede9fe;
-  --purple-light: #f5f3ff;
-  --text-main: #111827;
-  --text-muted: #4b5563;
-  --text-light: #6b7280;
-  --bg: #fbfaff;
+  --accent: #0f766e;
+  --accent-strong: #134e4a;
+  --accent-soft: #dcefeb;
+  --accent-light: #eef6f3;
+  --text-main: #171a18;
+  --text-muted: #4f5a55;
+  --text-light: #78827d;
+  --bg: #f6f7f3;
   --card-bg: #ffffff;
-  --border: rgba(124, 58, 237, 0.12);
-  --shadow: 0 14px 40px rgba(124, 58, 237, 0.10);
-  --radius-lg: 28px;
-  --radius-md: 20px;
+  --border: rgba(24, 72, 65, 0.14);
+  --shadow: 0 18px 48px rgba(21, 35, 32, 0.08);
+  --radius-lg: 22px;
+  --radius-md: 14px;
 }
 
 * {
@@ -78,27 +78,27 @@ body.custom-cursor-enabled textarea {
 }
 
 .custom-cursor::before {
-  content: "✦";
-  font-size: 32px;
-  line-height: 1;
-  color: var(--purple);
-  text-shadow: 0 0 18px rgba(124, 58, 237, 0.45);
-  transition: font-size 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 8px rgba(15, 118, 110, 0.10);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .custom-cursor.active {
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background: rgba(124, 58, 237, 0.08);
-  border: 1px solid rgba(124, 58, 237, 0.28);
-  box-shadow: 0 0 34px rgba(124, 58, 237, 0.25);
+  background: rgba(15, 118, 110, 0.06);
+  border: 1px solid rgba(15, 118, 110, 0.28);
+  box-shadow: 0 14px 34px rgba(21, 35, 32, 0.14);
 }
 
 .custom-cursor.active::before {
-  font-size: 42px;
-  color: var(--purple-dark);
-  transform: rotate(15deg) scale(1.05);
+  background: var(--accent-strong);
+  transform: scale(1.35);
 }
 
 
@@ -109,7 +109,7 @@ body.custom-cursor-enabled textarea {
 .nav {
   width: 100%;
   padding: 18px 6%;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(246, 247, 243, 0.88);
   backdrop-filter: blur(18px);
   display: flex;
   justify-content: space-between;
@@ -117,7 +117,7 @@ body.custom-cursor-enabled textarea {
   position: fixed;
   top: 0;
   z-index: 999;
-  border-bottom: 1px solid rgba(124, 58, 237, 0.08);
+  border-bottom: 1px solid rgba(21, 35, 32, 0.08);
 }
 
 .logo {
@@ -145,13 +145,13 @@ body.custom-cursor-enabled textarea {
 }
 
 .nav-links a:hover {
-  color: var(--purple);
+  color: var(--accent);
 }
 
 .theme-btn {
-  border: 1px solid rgba(124, 58, 237, 0.35);
+  border: 1px solid rgba(15, 118, 110, 0.28);
   background: #ffffff;
-  color: var(--purple);
+  color: var(--accent);
   padding: 8px 13px;
   border-radius: 999px;
   font-size: 13px;
@@ -160,7 +160,7 @@ body.custom-cursor-enabled textarea {
 }
 
 .theme-btn:hover {
-  background: var(--purple-soft);
+  background: var(--accent-soft);
 }
 
 
@@ -206,9 +206,8 @@ body.custom-cursor-enabled textarea {
 .intro-screen {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 82% 22%, rgba(167, 139, 250, 0.22), transparent 28%),
-    radial-gradient(circle at 12% 82%, rgba(196, 181, 253, 0.18), transparent 26%),
-    #ffffff;
+    linear-gradient(135deg, rgba(15, 118, 110, 0.07), transparent 32%),
+    linear-gradient(180deg, #ffffff 0%, #f6f7f3 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -219,9 +218,11 @@ body.custom-cursor-enabled textarea {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(124, 58, 237, 0.16) 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.45;
+  background-image:
+    linear-gradient(rgba(21, 35, 32, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 35, 32, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.8;
 }
 
 .home-layout {
@@ -240,11 +241,11 @@ body.custom-cursor-enabled textarea {
   width: 100%;
   max-width: 430px;
   height: 560px;
-  border-radius: 36px;
+  border-radius: 24px;
   overflow: hidden;
-  background: linear-gradient(135deg, #f5f3ff, #ffffff);
-  box-shadow: 0 28px 70px rgba(124, 58, 237, 0.18);
-  border: 1px solid rgba(124, 58, 237, 0.12);
+  background: #eef2ee;
+  box-shadow: 0 28px 70px rgba(21, 35, 32, 0.14);
+  border: 1px solid rgba(21, 35, 32, 0.10);
 }
 
 .home-photo-wrap img {
@@ -313,16 +314,16 @@ body.custom-cursor-enabled textarea {
 }
 
 .english-name {
-  font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--purple);
+  font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  color: var(--accent);
 }
 
 .chinese-name {
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   font-weight: 700;
-  color: var(--purple);
+  color: var(--accent);
   letter-spacing: 1px;
   font-size: clamp(52px, 5.8vw, 82px);
   line-height: 1.1;
@@ -351,24 +352,24 @@ body.custom-cursor-enabled textarea {
 }
 
 .primary-home-btn {
-  background: var(--purple);
+  background: var(--accent);
   color: white;
-  box-shadow: 0 12px 28px rgba(124, 58, 237, 0.22);
+  box-shadow: 0 12px 28px rgba(15, 118, 110, 0.18);
 }
 
 .primary-home-btn:hover {
-  background: var(--purple-dark);
+  background: var(--accent-strong);
   transform: translateY(-2px);
 }
 
 .secondary-home-btn {
   background: white;
-  color: var(--purple);
-  border: 1px solid rgba(124, 58, 237, 0.28);
+  color: var(--accent);
+  border: 1px solid rgba(15, 118, 110, 0.28);
 }
 
 .secondary-home-btn:hover {
-  background: var(--purple-soft);
+  background: var(--accent-soft);
   transform: translateY(-2px);
 }
 
@@ -377,33 +378,33 @@ body.custom-cursor-enabled textarea {
   max-width: 430px;
   margin-top: 24px;
   padding: 16px 18px;
-  border-left: 4px solid var(--purple);
-  border-radius: 18px;
+  border-left: 4px solid var(--accent);
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.78);
   color: var(--text-main);
   font-size: 15px;
   font-weight: 800;
-  box-shadow: 0 16px 40px rgba(124, 58, 237, 0.10);
+  box-shadow: 0 16px 40px rgba(21, 35, 32, 0.08);
   transition: 0.25s;
 }
 
 .hr-quick-entry span {
   display: block;
   margin-bottom: 4px;
-  color: var(--purple);
+  color: var(--accent);
   font-size: 12px;
   letter-spacing: 1px;
 }
 
 .hr-quick-entry:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 46px rgba(124, 58, 237, 0.16);
+  box-shadow: 0 20px 46px rgba(21, 35, 32, 0.12);
 }
 
 .scroll-hint {
   display: inline-block;
   margin-top: 90px;
-  color: var(--purple);
+  color: var(--accent);
   font-size: 14px;
   font-weight: 800;
   animation: floatHint 1.8s ease-in-out infinite;
@@ -430,9 +431,7 @@ body.custom-cursor-enabled textarea {
 
 .about-section {
   background:
-    radial-gradient(circle at 12% 18%, rgba(196, 181, 253, 0.18), transparent 28%),
-    radial-gradient(circle at 88% 72%, rgba(167, 139, 250, 0.14), transparent 28%),
-    #fbfaff;
+    linear-gradient(180deg, #f6f7f3 0%, #ffffff 100%);
 }
 
 .about-intro-card {
@@ -440,10 +439,10 @@ body.custom-cursor-enabled textarea {
   max-width: 1180px;
   margin: 0 auto 28px;
   padding: 26px 30px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(124, 58, 237, 0.10);
-  border-radius: 26px;
-  box-shadow: 0 12px 34px rgba(124, 58, 237, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(21, 35, 32, 0.10);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 34px rgba(21, 35, 32, 0.06);
 }
 
 .about-intro-card p {
@@ -474,12 +473,12 @@ body.custom-cursor-enabled textarea {
 }
 
 .flip-card-scroll::-webkit-scrollbar-track {
-  background: #eee7ff;
+  background: #e7ece8;
   border-radius: 999px;
 }
 
 .flip-card-scroll::-webkit-scrollbar-thumb {
-  background: #c4b5fd;
+  background: #9bb9b1;
   border-radius: 999px;
 }
 
@@ -530,12 +529,12 @@ body.custom-cursor-enabled textarea {
   inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: 28px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  box-shadow: 0 18px 44px rgba(124, 58, 237, 0.15);
-  border: 1px solid rgba(124, 58, 237, 0.10);
+  box-shadow: 0 18px 44px rgba(21, 35, 32, 0.12);
+  border: 1px solid rgba(21, 35, 32, 0.10);
 }
 
 /* 正面：照片 */
@@ -626,14 +625,13 @@ body.custom-cursor-enabled textarea {
 /* 深色模式 */
 .dark-mode .about-section {
   background:
-    radial-gradient(circle at 12% 18%, rgba(124, 58, 237, 0.22), transparent 28%),
-    #111827;
+    linear-gradient(180deg, #111816 0%, #17201d 100%);
 }
 
 .dark-mode .about-intro-card,
 .dark-mode .flip-card-back {
   background: #1f2937;
-  border-color: rgba(167, 139, 250, 0.18);
+  border-color: rgba(45, 212, 191, 0.16);
 }
 
 .dark-mode .flip-card-back h3 {
@@ -668,8 +666,7 @@ body.custom-cursor-enabled textarea {
 
 .experience-section {
   background:
-    radial-gradient(circle at 88% 12%, rgba(167, 139, 250, 0.18), transparent 24%),
-    #fbfaff;
+    linear-gradient(180deg, #ffffff 0%, #f6f7f3 100%);
 }
 
 .impact-grid {
@@ -693,8 +690,8 @@ body.custom-cursor-enabled textarea {
   display: inline-flex;
   align-items: center;
   min-height: 28px;
-  background: var(--purple-soft);
-  color: var(--purple);
+  background: var(--accent-soft);
+  color: var(--accent);
   border-radius: 999px;
   padding: 4px 10px;
   font-size: 12px;
@@ -728,12 +725,12 @@ body.custom-cursor-enabled textarea {
 }
 
 .experience-scroll::-webkit-scrollbar-track {
-  background: #eee7ff;
+  background: #e7ece8;
   border-radius: 999px;
 }
 
 .experience-scroll::-webkit-scrollbar-thumb {
-  background: #c4b5fd;
+  background: #9bb9b1;
   border-radius: 999px;
 }
 
@@ -750,7 +747,7 @@ body.custom-cursor-enabled textarea {
 
 .experience-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 48px rgba(124, 58, 237, 0.16);
+  box-shadow: 0 18px 48px rgba(21, 35, 32, 0.12);
 }
 
 .experience-card h3 {
@@ -762,16 +759,16 @@ body.custom-cursor-enabled textarea {
 }
 
 .case-point {
-  background: #f7f4ff;
-  border-left: 3px solid var(--purple);
-  border-radius: 14px;
+  background: #f2f6f4;
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
   padding: 12px 14px;
   margin-bottom: 12px;
 }
 
 .case-point span {
   display: block;
-  color: var(--purple);
+  color: var(--accent);
   font-size: 14px;
   font-weight: 900;
   margin-bottom: 6px;
@@ -807,8 +804,8 @@ body.custom-cursor-enabled textarea {
 
 .mini-tags span,
 .skill-tags span {
-  background: var(--purple-soft);
-  color: var(--purple-dark);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
   padding: 7px 11px;
   border-radius: 999px;
   font-size: 13px;
@@ -833,7 +830,6 @@ body.custom-cursor-enabled textarea {
 .education-card {
   position: relative;
   overflow: hidden;
-  border-radius: 32px;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -857,7 +853,7 @@ body.custom-cursor-enabled textarea {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.82);
   z-index: 1;
 }
 
@@ -876,8 +872,8 @@ body.custom-cursor-enabled textarea {
 
 .edu-badge {
   display: inline-block;
-  background: var(--purple-soft);
-  color: var(--purple-dark);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
   padding: 7px 12px;
   border-radius: 999px;
   font-size: 13px;
@@ -914,9 +910,9 @@ body.custom-cursor-enabled textarea {
 }
 
 .edu-block {
-  background: #f7f4ff;
-  border-left: 4px solid var(--purple);
-  border-radius: 18px;
+  background: #f2f6f4;
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-md);
   padding: 22px;
 }
 
@@ -939,8 +935,7 @@ body.custom-cursor-enabled textarea {
 
 .skills-section {
   background:
-    radial-gradient(circle at 15% 15%, rgba(196, 181, 253, 0.18), transparent 28%),
-    #fbfaff;
+    linear-gradient(180deg, #f6f7f3 0%, #ffffff 100%);
 }
 
 .skill-map {
@@ -975,8 +970,7 @@ body.custom-cursor-enabled textarea {
 
 .jd-match-section {
   background:
-    radial-gradient(circle at 12% 20%, rgba(124, 58, 237, 0.12), transparent 28%),
-    linear-gradient(180deg, #ffffff 0%, #fbfaff 100%);
+    linear-gradient(180deg, #ffffff 0%, #f6f7f3 100%);
 }
 
 .jd-match-section .section-heading {
@@ -1019,17 +1013,17 @@ body.custom-cursor-enabled textarea {
   min-height: 300px;
   resize: vertical;
   padding: 16px;
-  border: 1px solid rgba(124, 58, 237, 0.2);
-  border-radius: 18px;
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  border-radius: var(--radius-md);
   outline: none;
-  background: #fbfaff;
+  background: #f8faf7;
   color: var(--text-main);
   line-height: 1.8;
 }
 
 .jd-input-card textarea:focus {
-  border-color: var(--purple);
-  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.09);
 }
 
 .jd-actions {
@@ -1041,8 +1035,8 @@ body.custom-cursor-enabled textarea {
 
 .btn.secondary {
   background: #ffffff;
-  color: var(--purple);
-  border: 1px solid rgba(124, 58, 237, 0.26);
+  color: var(--accent);
+  border: 1px solid rgba(15, 118, 110, 0.26);
 }
 
 .jd-privacy {
@@ -1053,7 +1047,7 @@ body.custom-cursor-enabled textarea {
 }
 
 .jd-score {
-  color: var(--purple);
+  color: var(--accent);
   font-size: clamp(52px, 7vw, 82px);
   line-height: 1;
   font-weight: 900;
@@ -1086,14 +1080,13 @@ body.custom-cursor-enabled textarea {
 
 .dark-mode .jd-match-section {
   background:
-    radial-gradient(circle at 12% 20%, rgba(167, 139, 250, 0.18), transparent 28%),
-    #111827;
+    linear-gradient(180deg, #111816 0%, #17201d 100%);
 }
 
 .dark-mode .jd-input-card,
 .dark-mode .jd-result-card {
   background: #1f2937;
-  border-color: rgba(167, 139, 250, 0.18);
+  border-color: rgba(45, 212, 191, 0.16);
 }
 
 .dark-mode .jd-input-card label,
@@ -1105,7 +1098,7 @@ body.custom-cursor-enabled textarea {
 .dark-mode .btn.secondary {
   background: #111827;
   color: #f9fafb;
-  border-color: rgba(167, 139, 250, 0.28);
+  border-color: rgba(45, 212, 191, 0.22);
 }
 
 .dark-mode .jd-summary,
@@ -1157,12 +1150,12 @@ body.custom-cursor-enabled textarea {
 .feedback-form textarea {
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid rgba(124, 58, 237, 0.2);
-  border-radius: 16px;
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  border-radius: var(--radius-md);
   font-size: 15px;
   font-family: inherit;
   outline: none;
-  background: #fbfaff;
+  background: #f8faf7;
   color: var(--text-main);
 }
 
@@ -1174,8 +1167,8 @@ body.custom-cursor-enabled textarea {
 
 .feedback-form input:focus,
 .feedback-form textarea:focus {
-  border-color: var(--purple);
-  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.09);
 }
 
 .btn {
@@ -1188,24 +1181,24 @@ body.custom-cursor-enabled textarea {
 }
 
 .primary {
-  background: var(--purple);
+  background: var(--accent);
   color: white;
 }
 
 .primary:hover {
-  background: var(--purple-dark);
+  background: var(--accent-strong);
   transform: translateY(-2px);
 }
 
 .feedback-tip {
-  color: var(--purple);
+  color: var(--accent);
   font-weight: 800;
   margin-top: 16px;
 }
 
 /* 右侧小联系方式卡片 */
 .contact-mini-card {
-  background: linear-gradient(135deg, #ffffff, #f5f3ff);
+  background: linear-gradient(135deg, #ffffff, #eef6f3);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
@@ -1214,7 +1207,7 @@ body.custom-cursor-enabled textarea {
 
 .contact-mini-card h3 {
   font-size: 30px;
-  color: var(--purple);
+  color: var(--accent);
   margin-bottom: 10px;
 }
 
@@ -1232,14 +1225,14 @@ body.custom-cursor-enabled textarea {
 
 .contact-mini-list div {
   background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(124, 58, 237, 0.10);
-  border-radius: 16px;
+  border: 1px solid rgba(21, 35, 32, 0.10);
+  border-radius: var(--radius-md);
   padding: 14px 16px;
 }
 
 .contact-mini-list span {
   display: block;
-  color: var(--purple);
+  color: var(--accent);
   font-size: 13px;
   font-weight: 900;
   margin-bottom: 4px;
@@ -1259,8 +1252,7 @@ body.custom-cursor-enabled textarea {
 .contact-section {
   min-height: 70vh;
   background:
-    radial-gradient(circle at 82% 24%, rgba(167, 139, 250, 0.18), transparent 30%),
-    #ffffff;
+    linear-gradient(180deg, #f6f7f3 0%, #ffffff 100%);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -1278,7 +1270,7 @@ body.custom-cursor-enabled textarea {
   font-size: clamp(36px, 5vw, 64px);
   line-height: 1;
   letter-spacing: -2px;
-  color: var(--purple);
+  color: var(--accent);
   margin-bottom: 14px;
 }
 
@@ -1298,14 +1290,14 @@ body.custom-cursor-enabled textarea {
 .contact-grid div {
   background: rgba(255, 255, 255, 0.86);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   padding: 14px 16px;
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.08);
+  box-shadow: 0 8px 24px rgba(21, 35, 32, 0.08);
 }
 
 .contact-grid span {
   display: block;
-  color: var(--purple);
+  color: var(--accent);
   font-size: 13px;
   font-weight: 900;
   margin-bottom: 6px;
@@ -1332,18 +1324,18 @@ footer {
   color: #9ca3af;
 }
 .dark-mode {
-  --bg: #111827;
-  --card-bg: #1f2937;
+  --bg: #111816;
+  --card-bg: #17201d;
   --text-main: #f9fafb;
   --text-muted: #d1d5db;
   --text-light: #9ca3af;
-  --border: rgba(167, 139, 250, 0.20);
-  background: #111827;
+  --border: rgba(45, 212, 191, 0.16);
+  background: #111816;
 }
 
 .dark-mode .nav {
-  background: rgba(17, 24, 39, 0.82);
-  border-bottom-color: rgba(167, 139, 250, 0.18);
+  background: rgba(17, 24, 22, 0.86);
+  border-bottom-color: rgba(45, 212, 191, 0.14);
 }
 
 .dark-mode .intro-screen,
@@ -1354,18 +1346,19 @@ footer {
 .dark-mode .feedback-section,
 .dark-mode .contact-section {
   background:
-    radial-gradient(circle at 80% 22%, rgba(124, 58, 237, 0.20), transparent 28%),
-    #111827;
+    linear-gradient(180deg, #111816 0%, #17201d 100%);
 }
 
 .dark-mode .intro-screen::before {
-  background-image: radial-gradient(rgba(167, 139, 250, 0.20) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(45, 212, 191, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.08) 1px, transparent 1px);
 }
 
 .dark-mode .theme-btn {
-  background: #1f2937;
-  color: #c4b5fd;
-  border-color: rgba(167, 139, 250, 0.35);
+  background: #17201d;
+  color: #99f6e4;
+  border-color: rgba(45, 212, 191, 0.28);
 }
 
 .dark-mode .about-text-card,
@@ -1375,13 +1368,13 @@ footer {
 .dark-mode .skill-card,
 .dark-mode .feedback-box,
 .dark-mode .contact-grid div {
-  background: #1f2937;
-  border-color: rgba(167, 139, 250, 0.20);
+  background: #17201d;
+  border-color: rgba(45, 212, 191, 0.16);
 }
 
 .dark-mode .case-point,
 .dark-mode .edu-block {
-  background: #111827;
+  background: #111816;
 }
 
 .dark-mode .impact-card strong {
@@ -1394,9 +1387,9 @@ footer {
 
 .dark-mode .feedback-form input,
 .dark-mode .feedback-form textarea {
-  background: #111827;
+  background: #111816;
   color: #f9fafb;
-  border-color: rgba(167, 139, 250, 0.25);
+  border-color: rgba(45, 212, 191, 0.20);
 }
 
 .dark-mode .photo-track img {
@@ -1405,20 +1398,19 @@ footer {
 /* Feedback + Contact dark mode */
 .dark-mode .feedback-section {
   background:
-    radial-gradient(circle at 82% 24%, rgba(124, 58, 237, 0.22), transparent 30%),
-    #111827;
+    linear-gradient(180deg, #111816 0%, #17201d 100%);
 }
 
 .dark-mode .feedback-box {
-  background: rgba(31, 41, 55, 0.88);
-  border-color: rgba(167, 139, 250, 0.22);
+  background: rgba(23, 32, 29, 0.90);
+  border-color: rgba(45, 212, 191, 0.18);
 }
 
 .dark-mode .feedback-form input,
 .dark-mode .feedback-form textarea {
-  background: #111827;
+  background: #111816;
   color: #f9fafb;
-  border-color: rgba(167, 139, 250, 0.28);
+  border-color: rgba(45, 212, 191, 0.22);
 }
 
 .dark-mode .feedback-form input::placeholder,
@@ -1427,12 +1419,12 @@ footer {
 }
 
 .dark-mode .contact-mini-card {
-  background: rgba(31, 41, 55, 0.9);
-  border-color: rgba(167, 139, 250, 0.22);
+  background: rgba(23, 32, 29, 0.92);
+  border-color: rgba(45, 212, 191, 0.18);
 }
 
 .dark-mode .contact-mini-card h3 {
-  color: #c4b5fd;
+  color: #99f6e4;
 }
 
 .dark-mode .contact-mini-text {
@@ -1440,12 +1432,12 @@ footer {
 }
 
 .dark-mode .contact-mini-list div {
-  background: #111827;
-  border-color: rgba(167, 139, 250, 0.22);
+  background: #111816;
+  border-color: rgba(45, 212, 191, 0.18);
 }
 
 .dark-mode .contact-mini-list span {
-  color: #c4b5fd;
+  color: #99f6e4;
 }
 
 .dark-mode .contact-mini-list p {
