@@ -1,33 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   /* =========================
-     1. Custom Cursor
-  ========================= */
-
-  const portfolioCursor = document.querySelector(".custom-cursor");
-  const introArea = document.querySelector(".intro-inner");
-
-  if (portfolioCursor) {
-    document.body.classList.add("custom-cursor-enabled");
-
-    document.addEventListener("mousemove", (event) => {
-      portfolioCursor.style.left = event.clientX + "px";
-      portfolioCursor.style.top = event.clientY + "px";
-    });
-  }
-
-  if (portfolioCursor && introArea) {
-    introArea.addEventListener("mouseenter", () => {
-      portfolioCursor.classList.add("active");
-    });
-
-    introArea.addEventListener("mouseleave", () => {
-      portfolioCursor.classList.remove("active");
-    });
-  }
-
-
-  /* =========================
-     2. Dark Mode
+     1. Dark Mode
   ========================= */
 
   const themeBtn = document.getElementById("themeBtn");
@@ -46,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     3. Feedback Form
+     2. Feedback Form
   ========================= */
 
   const feedbackForm = document.getElementById("feedbackForm");
@@ -86,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
     /* =========================
-     4. Flip Cards
+     3. Flip Cards
   ========================= */
 
   const flipCards = document.querySelectorAll(".flip-card");
@@ -112,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     5. JD Match Tool
+     4. JD Match Tool
   ========================= */
 
   const jdInput = document.getElementById("jdInput");

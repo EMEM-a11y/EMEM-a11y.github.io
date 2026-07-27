@@ -29,7 +29,7 @@ html {
 }
 
 body {
-  font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
   background: var(--bg);
   color: var(--text-main);
   line-height: 1.8;
@@ -45,70 +45,21 @@ img {
   max-width: 100%;
 }
 
-body.custom-cursor-enabled {
-  cursor: none;
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(15, 118, 110, 0.38);
+  outline-offset: 3px;
 }
-
-body.custom-cursor-enabled a,
-body.custom-cursor-enabled button,
-body.custom-cursor-enabled input,
-body.custom-cursor-enabled textarea {
-  cursor: none;
-}
-
 
 /* =========================
-   2. Custom Cursor
-========================= */
-
-.custom-cursor {
-  width: 34px;
-  height: 34px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  transition: width 0.2s ease, height 0.2s ease, transform 0.15s ease;
-}
-
-.custom-cursor::before {
-  content: "";
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 0 0 8px rgba(15, 118, 110, 0.10);
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-.custom-cursor.active {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: rgba(15, 118, 110, 0.06);
-  border: 1px solid rgba(15, 118, 110, 0.28);
-  box-shadow: 0 14px 34px rgba(21, 35, 32, 0.14);
-}
-
-.custom-cursor.active::before {
-  background: var(--accent-strong);
-  transform: scale(1.35);
-}
-
-
-/* =========================
-   3. Navigation
+   2. Navigation
 ========================= */
 
 .nav {
   width: 100%;
-  padding: 18px 6%;
+  padding: 16px 6%;
   background: rgba(246, 247, 243, 0.88);
   backdrop-filter: blur(18px);
   display: flex;
@@ -139,13 +90,34 @@ body.custom-cursor-enabled textarea {
 }
 
 .nav-links a {
+  position: relative;
   font-size: 14px;
+  font-weight: 650;
   color: var(--text-muted);
   transition: 0.2s;
 }
 
-.nav-links a:hover {
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  left: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  background: var(--accent);
+  transition: transform 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
   color: var(--accent);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+  transform: scaleX(1);
 }
 
 .theme-btn {
@@ -170,7 +142,7 @@ body.custom-cursor-enabled textarea {
 
 .page-section {
   min-height: auto;
-  padding: 88px 7% 72px;
+  padding: 104px 7% 84px;
   position: relative;
   overflow: hidden;
 }
@@ -204,7 +176,7 @@ body.custom-cursor-enabled textarea {
 ========================= */
 
 .intro-screen {
-  min-height: 100vh;
+  min-height: 100dvh;
   background:
     linear-gradient(135deg, rgba(15, 118, 110, 0.07), transparent 32%),
     linear-gradient(180deg, #ffffff 0%, #f6f7f3 100%);
@@ -221,8 +193,8 @@ body.custom-cursor-enabled textarea {
   background-image:
     linear-gradient(rgba(21, 35, 32, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(21, 35, 32, 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
-  opacity: 0.8;
+  background-size: 48px 48px;
+  opacity: 0.42;
 }
 
 .home-layout {
@@ -265,11 +237,6 @@ body.custom-cursor-enabled textarea {
 .intro-title {
   margin-bottom: 22px;
   color: var(--text-main);
-  transition: transform 0.25s ease, color 0.25s ease;
-}
-
-.intro-inner:hover .intro-title {
-  transform: scale(1.02);
 }
 
 .title-en {
@@ -282,20 +249,20 @@ body.custom-cursor-enabled textarea {
 }
 
 .title-cn {
-  display: none;
+  display: flex;
   flex-direction: row;
   align-items: baseline;
   justify-content: flex-start;
-  gap: 18px;
-  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
 }
 
-.intro-inner:hover .title-en {
-  display: none;
-}
-
-.intro-inner:hover .title-cn {
-  display: flex;
+.title-cn .intro-greeting,
+.title-cn .display-name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
 }
 
 .intro-greeting {
@@ -400,26 +367,6 @@ body.custom-cursor-enabled textarea {
   transform: translateY(-2px);
   box-shadow: 0 20px 46px rgba(21, 35, 32, 0.12);
 }
-
-.scroll-hint {
-  display: inline-block;
-  margin-top: 90px;
-  color: var(--accent);
-  font-size: 14px;
-  font-weight: 800;
-  animation: floatHint 1.8s ease-in-out infinite;
-}
-
-@keyframes floatHint {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(8px);
-  }
-}
-
 
 /* =========================
    6. About
@@ -1501,14 +1448,6 @@ footer {
 .title-cn {
   justify-content: center;
 }
-  body.custom-cursor-enabled {
-    cursor: auto;
-  }
-
-  .custom-cursor {
-    display: none;
-  }
-
   .nav {
     position: fixed;
     flex-direction: column;
@@ -1610,15 +1549,6 @@ footer {
   .theme-btn {
     padding: 7px 12px;
     font-size: 12px;
-  }
-
-  /* 手机不用星星光标 */
-  .custom-cursor {
-    display: none;
-  }
-
-  body.custom-cursor-enabled {
-    cursor: auto;
   }
 
   /* 页面整体 */
@@ -1723,10 +1653,6 @@ footer {
   .jd-result-card {
     padding: 22px;
     border-radius: 24px;
-  }
-
-  .scroll-hint {
-    margin-top: 48px;
   }
 
   /* 关于我翻转卡片 */
@@ -2002,10 +1928,6 @@ footer {
     margin-top: 18px;
   }
 
-  .scroll-hint {
-    margin-top: 32px;
-  }
-
   /* About 卡片不要太低 */
   .flip-card-scroll {
     margin-top: 24px;
@@ -2063,5 +1985,50 @@ footer {
 
   .form-row {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile navigation refinement */
+@media (max-width: 768px) {
+  .nav {
+    flex-wrap: wrap;
+    overflow: visible;
+    align-items: center;
+    gap: 8px 12px;
+  }
+
+  .nav-right {
+    display: contents;
+  }
+
+  .logo {
+    order: 1;
+  }
+
+  .theme-btn {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    order: 3;
+    flex: 0 0 100%;
+    width: 100%;
+    gap: 0;
+    justify-content: space-between;
+    padding: 4px 0 2px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .intro-screen {
+    padding-top: 112px;
+  }
+
+  .title-cn {
+    flex-direction: row;
+    justify-content: center;
   }
 }
