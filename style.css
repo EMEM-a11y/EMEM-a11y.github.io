@@ -643,6 +643,55 @@ textarea:focus-visible {
   line-height: 1.7;
 }
 
+.experience-company {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 24px;
+  padding: 22px 24px;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-md);
+  background: var(--accent-light);
+}
+
+.experience-company-name {
+  color: var(--text-main);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.experience-company-role {
+  margin-top: 4px;
+  color: var(--accent-strong);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.experience-company time {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.experience-company-summary {
+  grid-column: 1 / -1;
+  max-width: 900px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.experience-company--secondary {
+  margin-top: 24px;
+  padding: 26px 0 4px;
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+}
+
 .featured-cases {
   display: grid;
   gap: 24px;
@@ -1406,6 +1455,26 @@ footer {
   background: #111816;
 }
 
+.dark-mode .experience-company {
+  background: #111816;
+  border-color: rgba(45, 212, 191, 0.18);
+  border-left-color: #2dd4bf;
+}
+
+.dark-mode .experience-company--secondary {
+  background: transparent;
+  border-color: rgba(45, 212, 191, 0.16);
+}
+
+.dark-mode .experience-company-name {
+  color: #f9fafb;
+}
+
+.dark-mode .experience-company-role,
+.dark-mode .experience-company-summary {
+  color: #d1d5db;
+}
+
 .dark-mode .case-result {
   border-color: rgba(45, 212, 191, 0.18);
 }
@@ -1762,6 +1831,24 @@ footer {
   .case-actions ul,
   .other-projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .experience-company {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px;
+  }
+
+  .experience-company time {
+    grid-row: 2;
+  }
+
+  .experience-company-summary {
+    grid-row: 3;
+  }
+
+  .experience-company--secondary {
+    padding: 24px 0 2px;
   }
 
   .featured-case-header {
