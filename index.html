@@ -3,591 +3,275 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Emily Li 的个人作品集，聚焦 AI 产品、数据分析、自动化工作流与金融背景。">
-  <title>Emily Li | 个人作品集</title>
-  <link rel="stylesheet" href="style.css?rev=20260727-5">
+  <meta name="description" content="Emily Li 的个人作品集，聚焦 B 端 AI 产品、数据分析与业务自动化。">
+  <meta name="theme-color" content="#f3f1e9">
+  <title>Emily Li | AI 产品经理</title>
+  <link rel="stylesheet" href="style.css?rev=20260814-1">
 </head>
-
 <body>
-  <!-- Navigation -->
-  <header class="nav">
-    <div class="logo">Emily Li</div>
+  <a class="skip-link" href="#main">跳到主要内容</a>
 
-    <div class="nav-right">
-      <nav class="nav-links">
-        <a href="#home">首页</a>
-        <a href="#about">关于我</a>
-        <a href="#experience">实习经历</a>
-        <a href="#education">教育经历</a>
-        <a href="#skills">技能地图</a>
-        <a href="#jd-match">JD匹配</a>
-        <a href="#feedback">留言反馈</a>
-        <a href="#contact">联系我</a>
-      </nav>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="返回首页">
+      <span>EMILY LI</span>
+      <small>AI PRODUCT</small>
+    </a>
 
-      <button id="themeBtn" class="theme-btn">深色模式</button>
-    </div>
+    <nav class="site-nav" aria-label="主要导航">
+      <a href="#work">项目</a>
+      <a href="#experience">经历</a>
+      <a href="#about">关于</a>
+      <a href="#contact">联系</a>
+    </nav>
+
+    <button id="themeBtn" class="theme-toggle" type="button" aria-label="切换深色模式">
+      <span class="theme-label">夜间</span>
+    </button>
   </header>
 
-  <!-- Page 1: Home -->
-  <section id="home" class="page-section intro-screen">
-  <div class="home-layout">
+  <main id="main">
+    <section id="home" class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI PRODUCT MANAGER</p>
+        <h1>把复杂业务做成<br><em>可用的 AI 产品</em></h1>
+        <p class="hero-lead">我是李聪。用数据定位问题，把规则、模型和流程组合成可交付的效率工具。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">查看重点项目</a>
+          <a class="text-link" href="files/李聪-AI产品经理-2026.pdf" download>下载最新简历 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
 
-    <div class="home-photo-wrap">
-      <img src="images/home-photo.jpg" alt="Emily Li portrait">
-    </div>
+      <div class="hero-portrait">
+        <img src="images/home-photo.jpg" alt="Emily Li 的个人照片">
+      </div>
+    </section>
 
-    <div class="intro-inner">
-      <h1 class="intro-title">
-        <span class="title-en">
-          <span class="intro-greeting">HELLO, I'M</span>
-          <span class="display-name english-name">EMILY</span>
-        </span>
+    <section class="signal-strip" aria-label="重点成果">
+      <dl>
+        <div><dt>10 min</dt><dd>财务月报单次出报</dd></div>
+        <div><dt>100%</dt><dd>历史月报核验准确率</dd></div>
+        <div><dt>73%</dt><dd>工单归因当前准确率</dd></div>
+      </dl>
+    </section>
 
-        <span class="title-cn">
-          <span class="intro-greeting">你好，我是</span>
-          <span class="display-name chinese-name">李聪</span>
-        </span>
-      </h1>
+    <section id="work" class="section work-section">
+      <header class="section-intro">
+        <h2>先让成果说话。</h2>
+        <p>近期项目聚焦财务自动化和 AI 质检场景，覆盖需求、口径、Demo、合规交付与效果跟踪。</p>
+      </header>
 
-      <p class="intro-subtitle">
-        以金融视角理解业务，以数据定位问题，用 AI 工作流把想法转化为可复用的效率工具。
-      </p>
-      <div class="home-actions">
-  <a href="files/李聪-monash university-pm运营-可实习6个月.pdf" download class="home-btn primary-home-btn">下载简历</a>
-  <a href="#jd-match" class="home-btn secondary-home-btn">岗位匹配</a>
-</div>
-
-      <a href="#jd-match" class="hr-quick-entry">
-        <span>给 HR / Leader</span>
-        粘贴岗位 JD，快速查看我和岗位的匹配度
-      </a>
-
-    </div>
-
-  </div>
-</section>
-
-  <!-- Page 2: About -->
-  <section id="about" class="page-section about-section">
-  <div class="section-heading">
-    <h2>关于我</h2>
-    <p>
-      金融背景的产品实习生，擅长把业务问题、数据证据与 AI 工具串成可验证的解决方案。
-    </p>
-  </div>
-
-  <div class="about-intro-card">
-    <p>
-      我关注的不只是“用了什么工具”，更在意它是否真正解决业务问题。从战败工单归因、调度复盘到需求处理自动化，我习惯先梳理流程与口径，再将数据、规则和 Agent 能力组合成可验证的方案。
-    </p>
-  </div>
-
-  <div class="flip-card-scroll">
-
-    <article class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="images/about-1.jpg" alt="Education background">
-          <div class="front-caption">
-            <span>01</span>
-            <h3>Education</h3>
+      <div class="featured-work">
+        <article class="work-card work-card-primary">
+          <div class="work-meta">
+            <span>FINANCE AUTOMATION</span>
+            <time datetime="2026">2026</time>
           </div>
-        </div>
-
-        <div class="flip-card-back">
-          <span class="card-label">Education</span>
-          <h3>教育背景</h3>
-          <p>
-            我目前在 Monash University 攻读 Banking and Finance 硕士，本科主修金融学。金融训练让我习惯从指标、风险与业务目标出发拆解问题。
-          </p>
-          <ul class="flip-detail-list">
-            <li>关注金融机构、风险管理、投资分析和商业案例研究。</li>
-            <li>擅长把复杂业务拆成可观察、可比较、可复盘的指标。</li>
-            <li>希望把金融分析能力迁移到产品、数据和 AI 应用场景中。</li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <article class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="images/about-2.jpg" alt="AI product internship">
-          <div class="front-caption">
-            <span>02</span>
-            <h3>Experience</h3>
-          </div>
-        </div>
-
-        <div class="flip-card-back">
-          <span class="card-label">AI Product</span>
-          <h3>实习&实践经验</h3>
-          <p>
-            我的实践聚焦 B 端产品、数据分析、Agent 工作流与运营落地。做项目时，我更在意问题是否真正形成闭环。
-          </p>
-          <ul class="flip-detail-list">
-            <li>参与战败工单归因、需求处理自动化和营销 Agent 工作流。</li>
-            <li>能整理多源信息，设计标签、规则和人工校验流程。</li>
-            <li>熟悉从业务访谈、数据复盘到方案迭代的推进方式。</li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <article class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="images/about-3.jpg" alt="Data automation">
-          <div class="front-caption">
-            <span>03</span>
-            <h3>Hobbies</h3>
-          </div>
-        </div>
-
-        <div class="flip-card-back">
-          <span class="card-label">Life & Curiosity</span>
-          <h3>兴趣爱好</h3>
-          <p>
-            我喜欢运动、美食、摄影和阅读。它们不只是放松方式，也会训练观察力、表达力和对细节的敏感度。
-          </p>
-          <ul class="flip-detail-list">
-            <li>运动让我保持行动力，也更能接受长期练习带来的慢变化。</li>
-            <li>摄影和阅读帮助我练习叙事、审美和信息筛选。</li>
-            <li>喜欢尝试新工具，把好奇心转成具体的小作品和小实验。</li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <article class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="images/about-4.jpg" alt="Life and observation">
-          <div class="front-caption">
-            <span>04</span>
-            <h3>Personality</h3>
-          </div>
-        </div>
-
-        <div class="flip-card-back">
-          <span class="card-label">Life</span>
-          <h3>性格特点</h3>
-          <p>
-            我是比较外向、愿意沟通的人，也能沉下来处理细节。遇到复杂问题时，会先把事实、假设和下一步验证拆开。
-          </p>
-          <ul class="flip-detail-list">
-            <li>沟通上偏耐心，适合做需求澄清、跨角色对齐和反馈收集。</li>
-            <li>执行上偏主动，习惯把模糊任务推进成清单、节点和产出物。</li>
-            <li>复盘时会关注哪里可以复用，避免同类问题反复靠人工处理。</li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-  </div>
-
-  <p class="about-hint">向内求索，向外生长。</p>
-</section>
-
-  <!-- Page 3: Experience -->
-  <section id="experience" class="page-section experience-section">
-    <div class="section-heading">
-      <span class="section-number">03</span>
-      <h2>实习经历</h2>
-      <p>围绕 AI 产品、业务分析与运营提效，我负责问题拆解、方案设计与落地推进。</p>
-
-    </div>
-
-    <div class="experience-group">
-      <div class="experience-group-heading">
-        <h3>重点案例</h3>
-      </div>
-
-      <div class="featured-cases">
-        <article class="featured-case">
-          <div class="featured-case-header">
+          <h3>国际机票财务月报<br>自动化</h3>
+          <p class="work-summary">把参数确认、多表取数、规则处理、模板回填和结果校验串成一条稳定链路，同时建设可继续下钻的分析底表。</p>
+          <dl class="work-results">
+            <div><dt>10 分钟</dt><dd>单次出报</dd></div>
+            <div><dt>100%</dt><dd>3-6 月核验准确率</dd></div>
+          </dl>
+          <div class="work-details">
             <div>
-              <span class="case-index">01</span>
-              <h3>AI 智能体：战败工单归因系统</h3>
-              <p class="case-summary">将分散在通话、聊天和工单中的非结构化信息，转化为可校验、可复盘的标准化归因数据。</p>
+              <h4>我做了什么</h4>
+              <p>梳理业务场景、数据口径和字段映射，设计完整自动化流程，完成历史报表核验、QNOVA 合规迁移、培训与后续复用支持。</p>
             </div>
-            <div class="case-result">
-              <span>结果价值</span>
-              <strong>多源数据到标准标签</strong>
-              <p>支持人工校验与批量复盘，为线索筛选、顾问跟进和报价撮合提供分析依据。</p>
-            </div>
-          </div>
-
-          <div class="case-detail-grid">
-            <div class="case-detail">
-              <h4>问题</h4>
-              <p>收车链路长、战败节点分散，人工填写存在标注不准、口径不统一和信息遗漏，业务难以判断真实流失环节。</p>
-            </div>
-            <div class="case-detail">
-              <h4>我的贡献</h4>
-              <p>负责多源数据链路、战败标签体系与回流校验方案，推动 AI 归因进入可持续复盘的数据闭环。</p>
-            </div>
-            <div class="case-actions">
-              <h4>关键动作</h4>
-              <ul>
-                <li>整合通话转写、企微聊天、工单备注与状态流转，搭建智能体工作链路。</li>
-                <li>设计一级、二级战败标签，并通过 Prompt 与规则反复调优。</li>
-                <li>推动归因结果回流至数据表和跟进反馈模块。</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mini-tags">
-            <span>AI 归因</span>
-            <span>Prompt 设计</span>
-            <span>人机协同</span>
-          </div>
-        </article>
-
-        <article class="featured-case">
-          <div class="featured-case-header">
             <div>
-              <span class="case-index">02</span>
-              <h3>调度日历 V1 复盘与产品迭代</h3>
-              <p class="case-summary">从异常城市和高频改约场景入手，还原真实调度问题，将业务反馈转化为产品迭代方向。</p>
-            </div>
-            <div class="case-result">
-              <span>结果价值</span>
-              <strong>从异常诊断到 V2 方案</strong>
-              <p>形成分层履约、热力图和缺班预警等迭代方向，帮助减少调度盲区。</p>
+              <h4>真实落地</h4>
+              <p>财务已自主完成 6、7 月出报与波动分析；国内机票复用方案并进入口径打磨阶段。</p>
             </div>
           </div>
-
-          <div class="case-detail-grid">
-            <div class="case-detail">
-              <h4>问题</h4>
-              <p>V1 上线后部分城市数据表现异常，转化流失、高频改约和履约效率问题仍需进一步定位。</p>
-            </div>
-            <div class="case-detail">
-              <h4>我的贡献</h4>
-              <p>结合典型城市数据、产品日志与一线反馈完成场景诊断，并将异常原因转化为 V2 迭代建议。</p>
-            </div>
-            <div class="case-actions">
-              <h4>关键动作</h4>
-              <ul>
-                <li>还原典型城市的调度使用场景，定位关键异常环节。</li>
-                <li>识别远郊履约低效、资源配置不均和调度盲区。</li>
-                <li>提出分层履约与可视化调度优化方向。</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mini-tags">
-            <span>产品复盘</span>
-            <span>场景诊断</span>
-            <span>产品迭代</span>
-          </div>
+          <ul class="tag-list" aria-label="项目标签">
+            <li>财务自动化</li><li>数据口径</li><li>合规交付</li>
+          </ul>
         </article>
 
-        <article class="featured-case">
-          <div class="featured-case-header">
+        <article class="work-card work-card-secondary">
+          <div class="work-meta">
+            <span>AI QUALITY</span>
+            <time datetime="2026">2026</time>
+          </div>
+          <h3>酒店 UPS 工单<br>质检自动化</h3>
+          <p class="work-summary">聚合 CRM 中分散的服务与履约信息，自动输出 0-4 级质检结果，替代人工逐单还原完整服务过程。</p>
+          <div class="accuracy-story" aria-label="准确率迭代过程">
+            <span>19%</span><i aria-hidden="true"></i><span>60%</span><i aria-hidden="true"></i><strong>73%</strong>
+          </div>
+          <p class="accuracy-caption">3 轮金标集调优后的当前归因准确率，仍在持续优化。</p>
+          <div class="work-details">
             <div>
-              <span class="case-index">03</span>
-              <h3>需求分析与处理自动化</h3>
-              <p class="case-summary">把分散在群聊中的一线问题，重组为可收集、可分发、可追踪、可复用的处理流程。</p>
+              <h4>我做了什么</h4>
+              <p>独立推进酒店线，定义 Context Pack，协同研发打通取数与归因链路，从工程、逻辑和规则三层定位准确率瓶颈。</p>
             </div>
-            <div class="case-result">
-              <span>结果价值</span>
-              <strong>问题闭环与知识复用</strong>
-              <p>让高频问题可沉淀、可复用，并通过 Agent 自动回复与分配减少重复沟通。</p>
+            <div>
+              <h4>关键沉淀</h4>
+              <p>完成 14 个场景码表标准化，补充适用、排除和冲突规则，并组织质检与业务对齐争议口径。</p>
             </div>
           </div>
-
-          <div class="case-detail-grid">
-            <div class="case-detail">
-              <h4>问题</h4>
-              <p>一线反馈量大且类型复杂，群聊式处理依赖人工分发，存在响应慢、进度不可追踪和重复问题难沉淀等问题。</p>
-            </div>
-            <div class="case-detail">
-              <h4>我的贡献</h4>
-              <p>梳理问题归属与核心链路，沉淀高频问题知识库，并使用 Coze 搭建需求处理 Agent。</p>
-            </div>
-            <div class="case-actions">
-              <h4>关键动作</h4>
-              <ul>
-                <li>按一线角色梳理反馈，拆解问题归属与处理路径。</li>
-                <li>沉淀高频问题知识库，优化业务 SOP。</li>
-                <li>引入自动回复与分配处理能力，提升复用效率。</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mini-tags">
-            <span>需求管理</span>
-            <span>Agent 搭建</span>
-            <span>自动化提效</span>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="experience-group other-projects">
-      <div class="experience-group-heading">
-        <h3>其他项目</h3>
-      </div>
-
-      <div class="other-projects-grid">
-        <article class="other-project">
-          <span class="other-project-type">数据建设</span>
-          <h4>业务数据底座搭建</h4>
-          <p>定位底层数据缺失与口径不统一问题，推动跟进记录表、任务宽表等数据集建设，并校验关键字段和回流逻辑。</p>
-          <strong>支撑约检率、跟进完成率与战败复盘</strong>
-        </article>
-
-        <article class="other-project">
-          <span class="other-project-type">AIGC 应用</span>
-          <h4>营销 Agent 与图文生成工作流</h4>
-          <p>搭建热点文稿提取 Agent，并使用 Coze、TapNow 为小红书、闲鱼和朋友圈生成匹配场景的图文与视频。</p>
-          <strong>推动商家侧内容生产智能化</strong>
-        </article>
-
-        <article class="other-project">
-          <span class="other-project-type">数据分析</span>
-          <h4>物流数据运营分析与调度优化</h4>
-          <p>清洗 9000+ 条运输记录，搭建空驶率、吨公里成本、车辆利用率和时效偏差等指标模板。</p>
-          <strong>识别约 25% 返程空驶率，平均到达偏差缩短约 1 小时</strong>
-        </article>
-
-        <article class="other-project">
-          <span class="other-project-type">平台运营</span>
-          <h4>“到梦空间”平台运营推广</h4>
-          <p>梳理申报、审批与反馈流程，制定 SOP 和培训指引，并通过季度复盘持续优化提醒节奏与统计口径。</p>
-          <strong>上线首月使用率 90%+，后期实现 100% 覆盖</strong>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Page 4: Education -->
-  <section id="education" class="page-section education-section">
-    <div class="section-heading">
-      <span class="section-number">04</span>
-      <h2>教育经历</h2>
-    </div>
-
-    <div class="education-stack">
-
-      <article class="education-card" style="--edu-bg: url('images/monash-bg.jpg');">
-       <div class="edu-header">
-  <span class="edu-badge">Postgraduate / 研究生</span>
-
-  <div class="edu-title-row">
-    <h3>Monash University</h3>
-    <p class="edu-degree">Master of Banking and Finance</p>
-  </div>
-</div>
-
-        <div class="edu-content">
-          <div class="edu-block">
-            <h4>学习重点</h4>
-            <p>
-              在 Monash 的学习重点覆盖金融机构、风险管理、投资分析、信贷分析和商业案例研究。我更关注如何把金融分析框架用于业务判断和数据解释。
-            </p>
-          </div>
-
-          <div class="edu-block">
-            <h4>校园经历</h4>
-            <p>
-              目前 GPA 为 3.5，均分 80，成绩等级为 High Distinction（HD）。课程训练强化了我对指标、风险和商业逻辑的理解。
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="education-card" style="--edu-bg: url('images/sdau-bg.jpg');">
-       <div class="edu-header">
-  <span class="edu-badge">Undergraduate / 本科</span>
-
-  <div class="edu-title-row">
-    <h3>山东农业大学</h3>
-    <p class="edu-degree">金融学专业</p>
-  </div>
-</div>
-
-        <div class="edu-content">
-          <div class="edu-block">
-            <h4>学习重点</h4>
-            <p>
-              本科主修金融学，系统学习公司金融、投资学、计量分析、会计和经济学等课程，建立了较完整的金融与商业分析基础。
-            </p>
-          </div>
-
-          <div class="edu-block">
-            <h4>校园经历</h4>
-            <p>
-              GPA 3.71，均分 89，多次获得奖学金和学生荣誉。曾组织策划 20 余项创新创业、社会实践与志愿服务活动，累计参与人次 5000+。
-            </p>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- Page 5: Skills -->
-  <section id="skills" class="page-section skills-section">
-    <div class="section-heading">
-      <span class="section-number">05</span>
-      <h2>技能地图</h2>
-    </div>
-
-    <div class="skill-map">
-
-      <article class="skill-card">
-        <h3>基本技能</h3>
-        <div class="skill-tags">
-          <span>中英文沟通表达</span>
-          <span>情绪管理</span>
-          <span>团队协作</span>
-          <span>时间管理</span>
-          <span>学习能力</span>
-        </div>
-      </article>
-
-      <article class="skill-card">
-        <h3>工作技能</h3>
-        <div class="skill-tags">
-          <span>PRD 撰写</span>
-          <span>业务流程梳理</span>
-          <span>数据口径校验</span>
-          <span>MS Office</span>
-          <span>VBA</span>
-          <span>SQL</span>
-          <span>AI Agent 搭建</span>
-          <span>新媒体运营（秀米、剪映）</span>
-        </div>
-      </article>
-
-      <article class="skill-card">
-        <h3>生活技能</h3>
-        <div class="skill-tags">
-          <span>开车（国内外）</span>
-          <span>烹饪调酒</span>
-          <span>出行规划</span>
-          <span>摄影修图</span>
-        </div>
-      </article>
-
-      <article class="skill-card">
-        <h3>兴趣技能</h3>
-        <div class="skill-tags">
-          <span>游泳</span>
-          <span>羽毛球</span>
-          <span>高尔夫</span>
-          <span>民族舞</span>
-          <span>美甲美妆</span>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- Page 6: JD Match -->
-  <section id="jd-match" class="page-section jd-match-section">
-    <div class="section-heading">
-      <span class="section-number">06</span>
-      <h2>岗位 JD 匹配器</h2>
-      <p>
-        面向 HR 与业务负责人：粘贴招聘岗位 JD，快速查看匹配点、潜在缺口与面试追问方向。
-      </p>
-    </div>
-
-    <div class="jd-match-layout">
-      <div class="jd-input-card">
-        <label for="jdInput">招聘岗位 JD</label>
-        <textarea id="jdInput" placeholder="请粘贴您正在招聘的岗位 JD，例如：产品实习生 / 数据分析实习生 / AI 产品运营..."></textarea>
-        <div class="jd-actions">
-          <button id="analyzeJdBtn" class="btn primary" type="button">分析匹配度</button>
-          <button id="clearJdBtn" class="btn secondary" type="button">清空</button>
-        </div>
-        <p class="jd-privacy">匹配仅依据本页项目、技能和教育背景；分析在浏览器本地完成，不会上传您粘贴的 JD 内容。</p>
-      </div>
-
-      <div class="jd-result-card" aria-live="polite">
-        <div class="jd-score" id="jdScore">--</div>
-        <p class="jd-summary" id="jdSummary">粘贴 JD 后点击分析，从产品、数据、AI、金融和运营协作几个方向评估匹配度。</p>
-
-        <div class="jd-result-block">
-          <h3>匹配证据</h3>
-          <ul id="matchedKeywords">
-            <li>等待分析</li>
+          <ul class="tag-list" aria-label="项目标签">
+            <li>AI 质检</li><li>Context Pack</li><li>Bad Case 分析</li>
           </ul>
-        </div>
+        </article>
+      </div>
+    </section>
 
-        <div class="jd-result-block">
-          <h3>建议追问</h3>
-          <ul id="gapKeywords">
-            <li>等待分析</li>
-          </ul>
-        </div>
+    <section id="experience" class="section experience-section">
+      <header class="section-intro">
+        <h2>从问题到闭环。</h2>
+        <p>我的工作方式很简单：先把事实与口径弄清楚，再用小范围验证证明方案，最后才进入交付和复用。</p>
+      </header>
 
-        <div class="jd-result-block">
-          <h3>面试关注点</h3>
-          <p id="jdPitch">等待分析</p>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-period"><time datetime="2026-06">2026.06 - 至今</time></div>
+          <div class="timeline-company">
+            <p>携程集团 / 去哪儿旅行</p>
+            <h3>AI 产品经理，B 端</h3>
+            <small>技术中心 AI LAB</small>
+          </div>
+          <div class="timeline-copy">
+            <p>支持多业务线推进 AI 提效与能力落地，覆盖需求调研、可行性评估、产品方案、Demo 验证、合规接入、交付培训与效果跟踪。</p>
+            <ul>
+              <li>国际机票财务月报自动化</li>
+              <li>酒店 UPS 工单质检自动化</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-period"><time datetime="2025-11">2025.11 - 2026.03</time></div>
+          <div class="timeline-company">
+            <p>字节跳动 / 懂车帝</p>
+            <h3>B 端产品经理</h3>
+            <small>二手车服务履约与供应链</small>
+          </div>
+          <div class="timeline-copy">
+            <p>围绕收车履约、调度和一线需求，参与 AI 归因、产品复盘与业务自动化，让非结构化反馈转化为可追踪的数据和流程。</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="case-list">
+        <article class="case-row">
+          <div><p class="case-kicker">AI AGENT</p><h3>战败工单归因系统</h3></div>
+          <p>整合通话转写、企微聊天、工单备注与状态流转，设计战败标签和回流校验方案，让分散信息成为可复盘的标准数据。</p>
+        </article>
+        <article class="case-row">
+          <div><p class="case-kicker">PRODUCT ITERATION</p><h3>调度日历 V1 复盘</h3></div>
+          <p>结合典型城市数据、产品日志与一线反馈定位异常，沉淀分层履约、热力图和缺班预警等 V2 方向。</p>
+        </article>
+        <article class="case-row">
+          <div><p class="case-kicker">WORKFLOW</p><h3>需求处理自动化</h3></div>
+          <p>把群聊里的高频问题重组为可收集、可分发、可追踪的处理流程，并用知识库和 Agent 降低重复沟通。</p>
+        </article>
+      </div>
+
+      <div class="side-projects">
+        <header><h3>其他实践</h3></header>
+        <article><span>DATA</span><h4>业务数据底座</h4><p>推动跟进记录表、任务宽表等数据集建设，校验关键字段与回流逻辑。</p></article>
+        <article><span>AIGC</span><h4>营销 Agent</h4><p>使用 Coze、TapNow 搭建热点提取与图文生成工作流。</p></article>
+        <article><span>ANALYSIS</span><h4>物流调度分析</h4><p>清洗 9000+ 条记录，识别约 25% 返程空驶率。</p></article>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="about-copy">
+        <h2>理性拆解，<br>也保留好奇。</h2>
+      </div>
+      <div class="about-body">
+        <p class="about-lead">金融训练让我习惯看指标、风险与商业逻辑；产品实践让我学会在真实约束里，把模糊问题推进成可验证的结果。</p>
+        <div class="profile-notes">
+          <div><span>工作方式</span><p>耐心澄清需求，主动推动节点，复盘可复用的方法。</p></div>
+          <div><span>生活之外</span><p>喜欢运动、美食、摄影和阅读，用观察力保持对人的敏感。</p></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Page 7: Feedback -->
-  <section id="feedback" class="page-section feedback-section">
-  <div class="section-heading">
-    <h2>留言反馈</h2>
-    <p>
-      如果你对我的项目经历、求职方向或合作机会感兴趣，欢迎留言。
-    </p>
-  </div>
+    <section class="section education-section" aria-labelledby="education-title">
+      <header class="section-intro">
+        <h2 id="education-title">金融，是我的底层语言。</h2>
+      </header>
+      <div class="education-grid">
+        <article class="education-item education-monash">
+          <div class="education-image"><img src="images/monash-bg.jpg" alt="Monash University 校园" loading="lazy"></div>
+          <div class="education-content"><span>2024 - 2026</span><h3>Monash University</h3><p>Master of Banking and Finance</p><strong>GPA 3.5 / 均分 80 / High Distinction</strong></div>
+        </article>
+        <article class="education-item">
+          <div class="education-image"><img src="images/sdau-bg.jpg" alt="山东农业大学校园" loading="lazy"></div>
+          <div class="education-content"><span>2019 - 2023</span><h3>山东农业大学</h3><p>金融学学士</p><strong>GPA 3.71 / 均分 89 / 多次奖学金</strong></div>
+        </article>
+      </div>
+    </section>
 
-  <div class="feedback-layout">
+    <section id="skills" class="section capability-section">
+      <header class="section-intro">
+        <h2>把工具放回业务里。</h2>
+        <p>不罗列熟练度，只展示我能用它们完成什么。</p>
+      </header>
+      <div class="capability-grid">
+        <article><h3>产品</h3><p>需求调研 / PRD / 流程梳理 / Demo 验证 / 验收交付</p></article>
+        <article><h3>数据</h3><p>SQL / Excel / VBA / 数据清洗 / 指标口径 / 业务复盘</p></article>
+        <article><h3>AI</h3><p>Agent 工作流 / Prompt / Context Pack / 金标集 / Bad Case</p></article>
+        <article><h3>协作</h3><p>业务访谈 / 跨角色对齐 / SOP / 培训 / 效果跟踪</p></article>
+      </div>
+    </section>
 
-    <div class="feedback-box">
-      <form id="feedbackForm" class="feedback-form">
-        <input type="hidden" name="access_key" value="387ee581-b520-42ac-afd8-041f19c79510">
-        <input type="hidden" name="subject" value="New feedback from Amily Portfolio">
-
-        <div class="form-row">
-          <input type="text" name="name" placeholder="你的称呼（可选）">
-          <input type="email" name="email" placeholder="邮箱 / 联系方式（可选）">
+    <section id="jd-match" class="section jd-section">
+      <header class="section-intro">
+        <h2>用你的 JD，快速对照。</h2>
+        <p>分析只在浏览器本地完成，不会上传你粘贴的岗位内容。</p>
+      </header>
+      <div class="jd-layout">
+        <div class="jd-input-panel">
+          <label for="jdInput">招聘岗位 JD</label>
+          <textarea id="jdInput" placeholder="粘贴岗位职责、任职要求和加分项..."></textarea>
+          <div class="jd-actions">
+            <button id="analyzeJdBtn" class="button button-primary" type="button">开始对照</button>
+            <button id="clearJdBtn" class="text-button" type="button">清空内容</button>
+          </div>
         </div>
-
-        <textarea name="message" placeholder="欢迎留下你的建议..." required></textarea>
-
-        <input type="checkbox" name="botcheck" style="display: none;">
-
-        <button type="submit" class="btn primary">提交反馈</button>
-      </form>
-
-      <p id="feedbackTip" class="feedback-tip"></p>
-    </div>
-
-    <aside id="contact" class="contact-mini-card">
-      <h3>联系我</h3>
-      <p class="contact-mini-text">
-        欢迎通过以下方式联系我。
-      </p>
-
-      <div class="contact-mini-list">
-        <div>
-          <span>Email</span>
-          <p>amilyl327@gmail.com</p>
-        </div>
-
-        <div>
-          <span>Phone</span>
-          <p>+86 17863869786</p>
+        <div class="jd-result-panel" aria-live="polite">
+          <div class="jd-score-wrap"><span>关键词匹配</span><strong id="jdScore">--</strong></div>
+          <p id="jdSummary">粘贴 JD 后，可从产品、数据、AI、金融和运营协作几个方向查看匹配点。</p>
+          <div class="jd-columns">
+            <div><h3>匹配证据</h3><ul id="matchedKeywords"><li>等待分析</li></ul></div>
+            <div><h3>建议追问</h3><ul id="gapKeywords"><li>等待分析</li></ul></div>
+          </div>
+          <div class="jd-pitch"><span>面试关注点</span><p id="jdPitch">等待分析</p></div>
         </div>
       </div>
-    </aside>
+    </section>
 
-  </div>
-</section>
+    <section id="contact" class="contact-section">
+      <div class="contact-copy">
+        <h2>有合适的问题，<br>一起把它做成产品。</h2>
+        <div class="contact-links">
+          <a href="mailto:amilyl327@gmail.com">amilyl327@gmail.com <span aria-hidden="true">↗</span></a>
+          <a href="tel:+8617863869786">+86 178 6386 9786 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="feedback-box">
+        <h3>给我留言</h3>
+        <form id="feedbackForm" class="feedback-form">
+          <input type="hidden" name="access_key" value="387ee581-b520-42ac-afd8-041f19c79510">
+          <input type="hidden" name="subject" value="New feedback from Emily Portfolio">
+          <label>你的称呼 <span>可选</span><input type="text" name="name" autocomplete="name"></label>
+          <label>联系方式 <span>可选</span><input type="email" name="email" autocomplete="email"></label>
+          <label>想说的话<textarea name="message" required></textarea></label>
+          <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off">
+          <button type="submit" class="button button-light">提交留言</button>
+        </form>
+        <p id="feedbackTip" class="feedback-tip" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
 
-  <script src="script.js"></script>
+  <footer class="site-footer">
+    <p>EMILY LI / AI PRODUCT MANAGER</p>
+    <a href="#home">BACK TO TOP ↑</a>
+    <p>© 2026</p>
+  </footer>
+
+  <script src="script.js?rev=20260814-1"></script>
 </body>
 </html>

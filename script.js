@@ -4,16 +4,24 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================= */
 
   const themeBtn = document.getElementById("themeBtn");
+  const themeLabel = themeBtn?.querySelector(".theme-label");
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+  const applyTheme = (isDark) => {
+    document.body.classList.toggle("dark-mode", isDark);
+    if (themeLabel) themeLabel.textContent = isDark ? "日间" : "夜间";
+    if (themeBtn) themeBtn.setAttribute("aria-label", isDark ? "切换浅色模式" : "切换深色模式");
+    if (themeMeta) themeMeta.setAttribute("content", isDark ? "#151713" : "#f3f1e9");
+  };
+
+  const savedTheme = localStorage.getItem("portfolio-theme");
+  applyTheme(savedTheme === "dark");
 
   if (themeBtn) {
     themeBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-
-      if (document.body.classList.contains("dark-mode")) {
-        themeBtn.textContent = "浅色模式";
-      } else {
-        themeBtn.textContent = "深色模式";
-      }
+      const isDark = !document.body.classList.contains("dark-mode");
+      applyTheme(isDark);
+      localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
     });
   }
 
@@ -55,37 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       submitButton.disabled = false;
-      submitButton.textContent = "提交反馈";
+      submitButton.textContent = "提交留言";
     });
   }
-    /* =========================
-     3. Flip Cards
-  ========================= */
-
-  const flipCards = document.querySelectorAll(".flip-card");
-
-  flipCards.forEach((card) => {
-    const toggleCard = () => {
-      card.classList.toggle("flipped");
-      card.setAttribute("aria-pressed", card.classList.contains("flipped") ? "true" : "false");
-    };
-
-    card.setAttribute("role", "button");
-    card.setAttribute("aria-pressed", "false");
-
-    card.addEventListener("click", toggleCard);
-
-    card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        toggleCard();
-      }
-    });
-  });
-
-
   /* =========================
-     4. JD Match Tool
+     3. JD Match Tool
   ========================= */
 
   const jdInput = document.getElementById("jdInput");
