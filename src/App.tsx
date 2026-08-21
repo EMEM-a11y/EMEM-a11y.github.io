@@ -27,6 +27,8 @@ import sdau from "../images/sdau-bg.jpg";
 import financeVisual from "../images/project-finance-3d.jpg";
 import qualityVisual from "../images/project-quality-3d.jpg";
 import attributionVisual from "../images/project-attribution-3d.jpg";
+import tripExperienceVisual from "../images/experience-trip.jpg";
+import dongchediExperienceVisual from "../images/experience-dongchedi.jpg";
 import springCharacter from "../images/toonhub/spring-character.png";
 import summerCharacter from "../images/toonhub/summer-character.png";
 import autumnCharacter from "../images/toonhub/autumn-character.png";
@@ -46,17 +48,17 @@ const internships = [
     company: "携程集团｜去哪儿旅行",
     division: "技术中心 - AI LAB",
     role: "AI 产品经理（B 端）",
-    period: "2026.06-至今",
-    image: financeVisual,
-    alt: "携程集团去哪儿旅行实习经历的项目视觉",
+    period: "2026.06-2026.09",
+    image: tripExperienceVisual,
+    alt: "蓝色旅行主题插画，呈现携程集团去哪儿旅行的实习经历",
   },
   {
     company: "字节跳动｜懂车帝",
     division: "二手车服务履约与供应链 - SaaS 产品",
     role: "B 端产品经理",
     period: "2025.11-2026.03",
-    image: attributionVisual,
-    alt: "字节跳动懂车帝实习经历的项目视觉",
+    image: dongchediExperienceVisual,
+    alt: "懂车帝虎仔与黄色汽车的品牌视觉，呈现字节跳动懂车帝的实习经历",
   },
 ];
 
