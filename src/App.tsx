@@ -27,10 +27,10 @@ import sdau from "../images/sdau-bg.jpg";
 import financeVisual from "../images/project-finance-3d.jpg";
 import qualityVisual from "../images/project-quality-3d.jpg";
 import attributionVisual from "../images/project-attribution-3d.jpg";
-import springCharacter from "../images/toonhub/spring.png";
-import summerCharacter from "../images/toonhub/summer.png";
-import autumnCharacter from "../images/toonhub/autumn.png";
-import winterCharacter from "../images/toonhub/winter.png";
+import springCharacter from "../images/toonhub/spring-character.png";
+import summerCharacter from "../images/toonhub/summer-character.png";
+import autumnCharacter from "../images/toonhub/autumn-character.png";
+import winterCharacter from "../images/toonhub/winter-character.png";
 import resumeUrl from "../files/李聪-27届.pdf?url";
 
 type FadeInProps = {
