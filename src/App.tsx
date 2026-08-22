@@ -1,11 +1,19 @@
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import {
+  lazy,
+  Suspense,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type PointerEvent as ReactPointerEvent,
+  type ReactNode,
+} from "react";
 import {
   AnimatePresence,
   motion,
   useReducedMotion,
   useScroll,
   useTransform,
-  type MotionValue,
 } from "framer-motion";
 import {
   ArrowDownToLine,
@@ -17,13 +25,12 @@ import {
   Phone,
 } from "lucide-react";
 
-import aboutOne from "../images/about-1.jpg";
-import aboutTwo from "../images/about-2.jpg";
-import aboutThree from "../images/about-3.jpg";
-import aboutFour from "../images/about-4.jpg";
-import homePhoto from "../images/home-photo.jpg";
-import monash from "../images/monash-bg.jpg";
-import sdau from "../images/sdau-bg.jpg";
+import aboutComputerCharacter from "../images/about-computer-character.png";
+import aboutHeadTurnZero from "../images/about-head-angles/head-turn-0.png";
+import aboutHeadTurnOne from "../images/about-head-angles/head-turn-1.png";
+import aboutHeadTurnTwo from "../images/about-head-angles/head-turn-2.png";
+import aboutHeadTurnThree from "../images/about-head-angles/head-turn-3.png";
+import aboutHeadTurnFour from "../images/about-head-angles/head-turn-4.png";
 import financeVisual from "../images/project-finance-3d.jpg";
 import qualityVisual from "../images/project-quality-3d.jpg";
 import attributionVisual from "../images/project-attribution-3d.jpg";
@@ -33,7 +40,29 @@ import springCharacter from "../images/toonhub/spring-character.png";
 import summerCharacter from "../images/toonhub/summer-character.png";
 import autumnCharacter from "../images/toonhub/autumn-character.png";
 import winterCharacter from "../images/toonhub/winter-character.png";
+import jobStoryOne from "../images/job-story/scene-01-campus.png";
+import jobStoryTwo from "../images/job-story/scene-02-social-feed.png";
+import jobStoryThree from "../images/job-story/scene-03-resume.png";
+import jobStoryFour from "../images/job-story/scene-04-interview.png";
+import jobStoryFive from "../images/job-story/scene-05-rejections.png";
+import jobStorySix from "../images/job-story/scene-06-opportunity.png";
+import jobStorySeven from "../images/job-story/scene-07-new-city.png";
+import jobStoryEight from "../images/job-story/scene-08-first-day.png";
+import jobStoryNine from "../images/job-story/scene-09-complex-work.png";
+import jobStoryTen from "../images/job-story/scene-10-exhausted.png";
+import jobStoryEleven from "../images/job-story/scene-11-reset.png";
+import jobStoryTwelve from "../images/job-story/scene-12-next-chapter.png";
 import resumeUrl from "../files/李聪-27届.pdf?url";
+
+const ParticleText = lazy(() => import("./components/ParticleText"));
+
+const aboutHeadFrames = [
+  aboutHeadTurnZero,
+  aboutHeadTurnOne,
+  aboutHeadTurnTwo,
+  aboutHeadTurnThree,
+  aboutHeadTurnFour,
+];
 
 type FadeInProps = {
   children: ReactNode;
@@ -92,15 +121,17 @@ const projects = [
   },
 ];
 
-const galleryTop = [financeVisual, aboutOne, qualityVisual, aboutTwo, attributionVisual, monash];
-const galleryBottom = [aboutThree, sdau, aboutFour, financeVisual, homePhoto, qualityVisual];
+const galleryTop = [jobStoryOne, jobStoryTwo, jobStoryThree, jobStoryFour, jobStoryFive, jobStorySix];
+const galleryBottom = [jobStorySeven, jobStoryEight, jobStoryNine, jobStoryTen, jobStoryEleven, jobStoryTwelve];
 
 const heroCharacters = [
-  { id: "lavender", alt: "Emily 的淡紫色休闲穿搭 3D 卡通形象", image: springCharacter, color: "#b7a7d6" },
-  { id: "sky", alt: "Emily 的浅蓝色连衣裙 3D 卡通形象", image: summerCharacter, color: "#a9cfda" },
-  { id: "caramel", alt: "Emily 的暖棕色街头穿搭 3D 卡通形象", image: autumnCharacter, color: "#d3ad96" },
-  { id: "pearl", alt: "Emily 的灰白色轻盈穿搭 3D 卡通形象", image: winterCharacter, color: "#c2ced4" },
+  { id: "lavender", alt: "Emily 的淡紫色休闲穿搭 3D 卡通形象", image: springCharacter, color: "#b7a7d6", label: "ON MY WAY" },
+  { id: "sky", alt: "Emily 的浅蓝色连衣裙 3D 卡通形象", image: summerCharacter, color: "#a9cfda", label: "OFF DUTY" },
+  { id: "caramel", alt: "Emily 的暖棕色街头穿搭 3D 卡通形象", image: autumnCharacter, color: "#d3ad96", label: "LOST IN THOUGHT" },
+  { id: "pearl", alt: "Emily 的灰白色轻盈穿搭 3D 卡通形象", image: winterCharacter, color: "#c2ced4", label: "TAKING MY TIME" },
 ];
+
+const heroParticleColors = ["#49314f"];
 
 function FadeIn({ children, className = "", delay = 0, x = 0, y = 30 }: FadeInProps) {
   const reduceMotion = useReducedMotion();
@@ -203,6 +234,24 @@ function SeasonalHeroCarousel() {
         );
       })}
 
+      <div className="hero-character-note-region" aria-live="polite">
+        <AnimatePresence initial={false} mode="wait">
+          <motion.p
+            className="hero-character-note"
+            key={heroCharacters[activeIndex].id}
+            initial={reduceMotion ? false : { opacity: 0, y: 12, scale: 0.94, rotate: -2 }}
+            animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+            exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -8, scale: 0.96 }}
+            transition={reduceMotion
+              ? { duration: 0 }
+              : { type: "spring", stiffness: 260, damping: 24 }}
+            lang="en"
+          >
+            {heroCharacters[activeIndex].label}
+          </motion.p>
+        </AnimatePresence>
+      </div>
+
       <div className="hero-carousel-controls" aria-label="切换首页人物形象">
         <button
           className="hero-carousel-button"
@@ -228,41 +277,74 @@ function SeasonalHeroCarousel() {
   );
 }
 
-function AnimatedCharacter({ progress, index, total, children }: {
-  progress: MotionValue<number>;
-  index: number;
-  total: number;
-  children: string;
-}) {
-  const start = index / total;
-  const end = Math.min(1, start + 0.16);
-  const opacity = useTransform(progress, [start, end], [0.2, 1]);
-  return <motion.span aria-hidden="true" style={{ opacity }}>{children}</motion.span>;
-}
-
-function AnimatedText({ text }: { text: string }) {
-  const ref = useRef<HTMLParagraphElement>(null);
+function InteractiveAbout() {
   const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.8", "end 0.2"] });
-  const characters = Array.from(text);
+  const [activeHeadFrame, setActiveHeadFrame] = useState(2);
+
+  const handlePointerMove = (event: ReactPointerEvent<HTMLElement>) => {
+    if (reduceMotion || event.pointerType === "touch") return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const pointerProgress = Math.min(1, Math.max(0, (event.clientX - bounds.left) / bounds.width));
+    const nextFrame = Math.round(pointerProgress * (aboutHeadFrames.length - 1));
+    setActiveHeadFrame((currentFrame) => currentFrame === nextFrame ? currentFrame : nextFrame);
+  };
+
+  const resetPointer = () => {
+    setActiveHeadFrame(2);
+  };
 
   return (
-    <p ref={ref} className="about-copy" aria-label={text}>
-      {characters.map((character, index) => (
-        reduceMotion ? (
-          <span aria-hidden="true" key={`${character}-${index}`}>{character}</span>
-        ) : (
-          <AnimatedCharacter
-            progress={scrollYProgress}
-            index={index}
-            total={characters.length}
-            key={`${character}-${index}`}
-          >
-            {character}
-          </AnimatedCharacter>
-        )
-      ))}
-    </p>
+    <section
+      className="about"
+      id="about"
+      onPointerMove={handlePointerMove}
+      onPointerLeave={resetPointer}
+    >
+      <div className="about-copy-column">
+        <FadeIn y={24}>
+          <h2>ABOUT ME</h2>
+        </FadeIn>
+        <FadeIn delay={0.1} y={24}>
+          <p className="about-lede">我是 Emily，一名把金融判断、产品方法和 AI 工具放进真实业务流程的人。</p>
+        </FadeIn>
+        <FadeIn delay={0.18} y={24}>
+          <p className="about-detail">我关注指标、风险与商业目标，也喜欢把复杂问题拆成清晰规则，推进到真正能用。</p>
+        </FadeIn>
+        <FadeIn delay={0.25} y={18}>
+          <p className="about-education">Monash University<br />Master of Banking and Finance / 2027</p>
+        </FadeIn>
+        <FadeIn delay={0.32} y={18}>
+          <div className="about-actions">
+            <a href="#internships">看经历</a>
+            <a className="about-action-outline" href={resumeUrl} download>
+              下载简历 <ArrowDownToLine aria-hidden="true" size={15} strokeWidth={1.8} />
+            </a>
+          </div>
+        </FadeIn>
+      </div>
+
+      <div className="about-character-panel">
+        <div className="about-character-orbit" aria-hidden="true" />
+        <div
+          className="about-character"
+          role="img"
+          aria-label="Emily 的复古电脑头人物形象"
+        >
+          <img className="about-character-body" src={aboutComputerCharacter} alt="" loading="lazy" />
+          <div className="about-computer-head-anchor" aria-hidden="true">
+            {aboutHeadFrames.map((frame, index) => (
+              <img
+                className={`about-computer-head-frame${index === activeHeadFrame ? " is-active" : ""}`}
+                src={frame}
+                alt=""
+                loading="lazy"
+                key={frame}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -286,7 +368,7 @@ function MovingGallery() {
   const bottomX = useTransform(scrollYProgress, [0, 1], ["-4%", "-18%"]);
 
   return (
-    <section ref={ref} className="moving-gallery" aria-label="项目与个人影像">
+    <section ref={ref} className="moving-gallery" aria-label="Emily 的求职成长故事">
       <motion.div style={reduceMotion ? undefined : { x: topX }}>
         <GalleryRow images={galleryTop} direction="right" />
       </motion.div>
@@ -424,7 +506,19 @@ function App() {
           </FadeIn>
 
           <FadeIn className="hero-title-wrap" delay={0.15} y={40}>
-            <h1 className="hero-heading">HI, I&apos;M EMILY</h1>
+            <h1 className="hero-title-accessible">HI, I&apos;M EMILY</h1>
+            <Suspense fallback={<span className="particle-text-loading hero-heading" aria-hidden="true">HI, I&apos;M EMILY</span>}>
+              <ParticleText
+                text="HI, I'M EMILY"
+                colors={heroParticleColors}
+                particleSize={5}
+                particleGap={3}
+                fontSize={220}
+                friction={0.82}
+                ease={0.065}
+                mouseControls={{ enabled: true, radius: 125, strength: 4.8 }}
+              />
+            </Suspense>
           </FadeIn>
 
           <SeasonalHeroCarousel />
@@ -441,20 +535,7 @@ function App() {
 
         <MovingGallery />
 
-        <section className="about" id="about">
-          <div className="about-center">
-            <FadeIn y={40}>
-              <h2 className="section-display hero-heading">ABOUT ME</h2>
-            </FadeIn>
-            <AnimatedText text="金融训练让我关注指标、风险与商业目标。产品实践让我把判断放进真实流程，再用数据、规则和 AI 把它推进到能用。" />
-            <FadeIn delay={0.12}>
-              <p className="about-education">Monash University / Master of Banking and Finance / 2027</p>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <ContactButton />
-            </FadeIn>
-          </div>
-        </section>
+        <InteractiveAbout />
 
         <section className="internships" id="internships">
           <div className="internships-inner">
