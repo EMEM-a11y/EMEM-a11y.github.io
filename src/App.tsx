@@ -5,7 +5,6 @@ import {
   useRef,
   useState,
   type CSSProperties,
-  type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react";
 import {
@@ -25,12 +24,6 @@ import {
   Phone,
 } from "lucide-react";
 
-import aboutComputerCharacter from "../images/about-computer-character.png";
-import aboutHeadTurnZero from "../images/about-head-angles/head-turn-0.png";
-import aboutHeadTurnOne from "../images/about-head-angles/head-turn-1.png";
-import aboutHeadTurnTwo from "../images/about-head-angles/head-turn-2.png";
-import aboutHeadTurnThree from "../images/about-head-angles/head-turn-3.png";
-import aboutHeadTurnFour from "../images/about-head-angles/head-turn-4.png";
 import financeVisual from "../images/project-finance-3d.jpg";
 import qualityVisual from "../images/project-quality-3d.jpg";
 import attributionVisual from "../images/project-attribution-3d.jpg";
@@ -55,14 +48,6 @@ import jobStoryTwelve from "../images/job-story/scene-12-next-chapter.png";
 import resumeUrl from "../files/李聪-27届.pdf?url";
 
 const ParticleText = lazy(() => import("./components/ParticleText"));
-
-const aboutHeadFrames = [
-  aboutHeadTurnZero,
-  aboutHeadTurnOne,
-  aboutHeadTurnTwo,
-  aboutHeadTurnThree,
-  aboutHeadTurnFour,
-];
 
 type FadeInProps = {
   children: ReactNode;
@@ -277,77 +262,6 @@ function SeasonalHeroCarousel() {
   );
 }
 
-function InteractiveAbout() {
-  const reduceMotion = useReducedMotion();
-  const [activeHeadFrame, setActiveHeadFrame] = useState(2);
-
-  const handlePointerMove = (event: ReactPointerEvent<HTMLElement>) => {
-    if (reduceMotion || event.pointerType === "touch") return;
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const pointerProgress = Math.min(1, Math.max(0, (event.clientX - bounds.left) / bounds.width));
-    const nextFrame = Math.round(pointerProgress * (aboutHeadFrames.length - 1));
-    setActiveHeadFrame((currentFrame) => currentFrame === nextFrame ? currentFrame : nextFrame);
-  };
-
-  const resetPointer = () => {
-    setActiveHeadFrame(2);
-  };
-
-  return (
-    <section
-      className="about"
-      id="about"
-      onPointerMove={handlePointerMove}
-      onPointerLeave={resetPointer}
-    >
-      <div className="about-copy-column">
-        <FadeIn y={24}>
-          <h2>ABOUT ME</h2>
-        </FadeIn>
-        <FadeIn delay={0.1} y={24}>
-          <p className="about-lede">我是 Emily，一名把金融判断、产品方法和 AI 工具放进真实业务流程的人。</p>
-        </FadeIn>
-        <FadeIn delay={0.18} y={24}>
-          <p className="about-detail">我关注指标、风险与商业目标，也喜欢把复杂问题拆成清晰规则，推进到真正能用。</p>
-        </FadeIn>
-        <FadeIn delay={0.25} y={18}>
-          <p className="about-education">Monash University<br />Master of Banking and Finance / 2027</p>
-        </FadeIn>
-        <FadeIn delay={0.32} y={18}>
-          <div className="about-actions">
-            <a href="#internships">看经历</a>
-            <a className="about-action-outline" href={resumeUrl} download>
-              下载简历 <ArrowDownToLine aria-hidden="true" size={15} strokeWidth={1.8} />
-            </a>
-          </div>
-        </FadeIn>
-      </div>
-
-      <div className="about-character-panel">
-        <div className="about-character-orbit" aria-hidden="true" />
-        <div
-          className="about-character"
-          role="img"
-          aria-label="Emily 的复古电脑头人物形象"
-        >
-          <img className="about-character-body" src={aboutComputerCharacter} alt="" loading="lazy" />
-          <div className="about-computer-head-anchor" aria-hidden="true">
-            {aboutHeadFrames.map((frame, index) => (
-              <img
-                className={`about-computer-head-frame${index === activeHeadFrame ? " is-active" : ""}`}
-                src={frame}
-                alt=""
-                loading="lazy"
-                key={frame}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function GalleryRow({ images, direction }: { images: string[]; direction: "left" | "right" }) {
   return (
     <div className="gallery-row" aria-hidden="true">
@@ -498,7 +412,7 @@ function App() {
         <section className="hero" id="home">
           <FadeIn y={-20}>
             <nav className="site-nav" aria-label="主要导航">
-              <a href="#about">关于</a>
+              <a href="#home">关于</a>
               <a href="#internships">经历</a>
               <a href="#projects">项目</a>
               <a href="#contact">联系</a>
@@ -535,12 +449,10 @@ function App() {
 
         <MovingGallery />
 
-        <InteractiveAbout />
-
         <section className="internships" id="internships">
           <div className="internships-inner">
             <FadeIn>
-              <h2 className="section-display internship-heading">EXPERIENCE</h2>
+              <h2 className="section-display section-heading internship-heading">EXPERIENCE</h2>
             </FadeIn>
             <div className="internship-list">
               {internships.map((internship, index) => (
@@ -564,7 +476,7 @@ function App() {
         <section className="projects" id="projects">
           <span className="anchor-target" id="experience" aria-hidden="true" />
           <FadeIn className="projects-heading">
-            <h2 className="section-display hero-heading">PROJECTS</h2>
+            <h2 className="section-display section-heading">PROJECTS</h2>
             <p>三段真实项目，展开查看问题、判断、行动与结果。</p>
           </FadeIn>
           <ProjectStack />
@@ -572,7 +484,7 @@ function App() {
 
         <section className="contact" id="contact">
           <FadeIn>
-            <h2 className="section-display hero-heading">LET&apos;S TALK</h2>
+            <h2 className="section-display section-heading">LET&apos;S TALK</h2>
           </FadeIn>
           <FadeIn className="contact-intro" delay={0.1}>
             <p>想聊项目、产品或任何有意思的问题，都可以直接联系我。</p>
