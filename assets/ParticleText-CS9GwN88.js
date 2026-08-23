@@ -1,4 +1,4 @@
-import{r as yr,j as br}from"./main-Bgjyh5IA.js";import"./modulepreload-polyfill-B5Qt9EMX.js";/**
+import{r as yr,j as br}from"./main-BLcO0OQD.js";import"./modulepreload-polyfill-B5Qt9EMX.js";/**
  * @license
  * Copyright 2010-2026 Three.js Authors
  * SPDX-License-Identifier: MIT
