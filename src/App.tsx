@@ -5,13 +5,16 @@ import {
   useRef,
   useState,
   type CSSProperties,
+  type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react";
 import {
   AnimatePresence,
   motion,
+  useMotionValue,
   useReducedMotion,
   useScroll,
+  useSpring,
   useTransform,
 } from "framer-motion";
 import {
@@ -33,6 +36,7 @@ import springCharacter from "../images/toonhub/spring-character.png";
 import summerCharacter from "../images/toonhub/summer-character.png";
 import autumnCharacter from "../images/toonhub/autumn-character.png";
 import winterCharacter from "../images/toonhub/winter-character.png";
+import contactCharacter from "../images/about-computer-character.png";
 import jobStoryOne from "../images/job-story/scene-01-campus.png";
 import jobStoryTwo from "../images/job-story/scene-02-social-feed.png";
 import jobStoryThree from "../images/job-story/scene-03-resume.png";
@@ -48,6 +52,7 @@ import jobStoryTwelve from "../images/job-story/scene-12-next-chapter.png";
 import resumeUrl from "../files/李聪-27届.pdf?url";
 
 const ParticleText = lazy(() => import("./components/ParticleText"));
+const ContactFluidBackground = lazy(() => import("./components/ContactFluidBackground"));
 
 type FadeInProps = {
   children: ReactNode;
@@ -403,6 +408,99 @@ function ProjectStack() {
   );
 }
 
+function ContactFinale() {
+  const reduceMotion = useReducedMotion();
+  const headX = useMotionValue(0);
+  const headY = useMotionValue(0);
+  const headRotate = useMotionValue(0);
+  const smoothHeadX = useSpring(headX, { stiffness: 105, damping: 22, mass: 0.55 });
+  const smoothHeadY = useSpring(headY, { stiffness: 105, damping: 22, mass: 0.55 });
+  const smoothHeadRotate = useSpring(headRotate, { stiffness: 95, damping: 20, mass: 0.6 });
+
+  const resetHead = () => {
+    headX.set(0);
+    headY.set(0);
+    headRotate.set(0);
+  };
+
+  const followPointer = (event: ReactPointerEvent<HTMLElement>) => {
+    if (reduceMotion || event.pointerType === "touch") return;
+
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const pointerX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+    const pointerY = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+
+    headX.set(pointerX * 8);
+    headY.set(pointerY * 4.5);
+    headRotate.set(pointerX * 1.8);
+  };
+
+  return (
+    <section
+      className="contact"
+      id="contact"
+      onPointerMove={followPointer}
+      onPointerLeave={resetHead}
+    >
+      <Suspense fallback={null}>
+        <ContactFluidBackground />
+      </Suspense>
+      <div className="contact-grid" aria-hidden="true" />
+
+      <div className="contact-content">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 34, filter: "blur(12px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="contact-heading">
+            <span>LET&apos;S</span>
+            <span>TALK</span>
+          </h2>
+          <p className="contact-intro">想聊项目、产品或任何有意思的问题，都可以直接联系我。</p>
+        </motion.div>
+
+        <div className="contact-links">
+          <FadeIn delay={0.14} y={18}>
+            <a href="mailto:amilyl327@gmail.com"><Mail aria-hidden="true" size={20} strokeWidth={1.8} />amilyl327@gmail.com</a>
+          </FadeIn>
+          <FadeIn delay={0.2} y={18}>
+            <a href="tel:+8617863869786"><Phone aria-hidden="true" size={20} strokeWidth={1.8} />+86 178 6386 9786</a>
+          </FadeIn>
+          <FadeIn delay={0.26} y={18}>
+            <a href={resumeUrl} download><ArrowDownToLine aria-hidden="true" size={20} strokeWidth={1.8} />下载最新简历</a>
+          </FadeIn>
+        </div>
+      </div>
+
+      <motion.figure
+        className="contact-character"
+        initial={reduceMotion ? false : { opacity: 0, y: 54, scale: 0.94 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+        aria-hidden="true"
+      >
+        <img className="contact-character-body" src={contactCharacter} alt="" loading="lazy" draggable={false} />
+        <motion.div
+          className="contact-character-head"
+          style={{ x: smoothHeadX, y: smoothHeadY, rotate: smoothHeadRotate }}
+        >
+          <img className="contact-character-head-image" src={contactCharacter} alt="" draggable={false} />
+          <div className="contact-face">
+            <span className="contact-face-eye contact-face-eye-left" />
+            <span className="contact-face-eye contact-face-eye-right" />
+            <span className="contact-face-smile-eye contact-face-smile-eye-left" />
+            <span className="contact-face-smile-eye contact-face-smile-eye-right" />
+            <span className="contact-face-mouth" />
+          </div>
+        </motion.div>
+      </motion.figure>
+    </section>
+  );
+}
+
 function App() {
   return (
     <div className="site-shell">
@@ -482,25 +580,7 @@ function App() {
           <ProjectStack />
         </section>
 
-        <section className="contact" id="contact">
-          <FadeIn>
-            <h2 className="section-display section-heading">LET&apos;S TALK</h2>
-          </FadeIn>
-          <FadeIn className="contact-intro" delay={0.1}>
-            <p>想聊项目、产品或任何有意思的问题，都可以直接联系我。</p>
-          </FadeIn>
-          <div className="contact-links">
-            <FadeIn delay={0.14}>
-              <a href="mailto:amilyl327@gmail.com"><Mail aria-hidden="true" size={20} strokeWidth={1.8} />amilyl327@gmail.com</a>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <a href="tel:+8617863869786"><Phone aria-hidden="true" size={20} strokeWidth={1.8} />+86 178 6386 9786</a>
-            </FadeIn>
-            <FadeIn delay={0.26}>
-              <a href={resumeUrl} download><ArrowDownToLine aria-hidden="true" size={20} strokeWidth={1.8} />下载最新简历</a>
-            </FadeIn>
-          </div>
-        </section>
+        <ContactFinale />
       </main>
 
       <footer className="site-footer">

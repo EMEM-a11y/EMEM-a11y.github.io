@@ -786,19 +786,77 @@ img {
 }
 
 .contact {
-  display: flex;
-  min-height: 64dvh;
-  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: 100dvh;
   align-items: center;
-  justify-content: center;
-  padding: clamp(4.5rem, 7vw, 7rem) var(--page-pad) clamp(4rem, 6vw, 6rem);
-  text-align: center;
+  overflow: clip;
+  background: #17121b;
+  color: #f8f3f9;
+  padding: clamp(4.5rem, 8vw, 7.5rem) var(--page-pad);
+}
+
+.contact::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(17, 12, 20, 0.74) 0%, rgba(17, 12, 20, 0.34) 48%, rgba(17, 12, 20, 0.08) 100%),
+    linear-gradient(0deg, rgba(13, 9, 16, 0.68) 0%, transparent 35%);
+  content: "";
+  pointer-events: none;
+}
+
+.contact-fluid-canvas {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  filter: blur(10px) saturate(118%);
+  pointer-events: none;
+  transform: translateZ(0);
+}
+
+.contact-grid {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: clamp(3.5rem, 7vw, 6.5rem) clamp(3.5rem, 7vw, 6.5rem);
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.75), transparent 84%);
+  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.75), transparent 84%);
+  pointer-events: none;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  width: min(58vw, 52rem);
+}
+
+.contact-heading {
+  display: flex;
+  flex-direction: column;
+  color: #f8f3f9;
+  font-size: clamp(4.8rem, 10.5vw, 10rem);
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  line-height: 0.75;
+}
+
+.contact-heading span:last-child {
+  margin-left: clamp(1.5rem, 8vw, 7rem);
+  color: #d9c4df;
 }
 
 .contact-intro {
-  max-width: 33rem;
-  margin-top: 2rem;
-  color: var(--mist-muted);
+  max-width: 38rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  color: rgba(248, 243, 249, 0.72);
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: 300;
   line-height: 1.7;
@@ -807,9 +865,9 @@ img {
 .contact-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.8rem;
-  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+  margin-top: clamp(2rem, 4vw, 3.5rem);
 }
 
 .contact-links a {
@@ -817,31 +875,217 @@ img {
   min-height: 3.25rem;
   align-items: center;
   gap: 0.55rem;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 999px;
+  background: rgba(255, 255, 255, 0.075);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
   padding: 0.8rem 1.25rem;
-  color: var(--mist);
+  color: #f8f3f9;
   font-size: 0.9rem;
+  backdrop-filter: blur(12px);
   transition: border-color 200ms ease, background-color 200ms ease, transform 200ms ease;
 }
 
 .contact-links a:hover {
   transform: translateY(-2px);
-  border-color: var(--mist);
-  background: rgba(113, 83, 116, 0.08);
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .contact-links a:active {
   transform: translateY(1px);
 }
 
+.contact-links a:focus-visible {
+  outline-color: #f8f3f9;
+}
+
+.contact-character {
+  position: absolute;
+  z-index: 1;
+  right: clamp(1rem, 6vw, 7rem);
+  bottom: -8%;
+  width: clamp(20rem, 35vw, 34rem);
+  aspect-ratio: 1023 / 1537;
+  margin: 0;
+  pointer-events: none;
+}
+
+.contact-character::before {
+  position: absolute;
+  z-index: -1;
+  top: 18%;
+  left: 50%;
+  width: 84%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(211, 184, 218, 0.16);
+  content: "";
+  filter: blur(2.5rem);
+  transform: translateX(-50%);
+}
+
+.contact-character img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 2.5rem 3.5rem rgba(6, 3, 8, 0.42));
+}
+
+.contact-character-body {
+  clip-path: inset(24.7% 0 0);
+}
+
+.contact-character-head {
+  position: absolute;
+  inset: 0;
+  transform-origin: 49% 24.5%;
+  will-change: transform;
+}
+
+.contact-character-head-image {
+  clip-path: polygon(35% 7%, 65% 7%, 67% 26.2%, 34.5% 26.2%);
+}
+
+.contact-face {
+  position: absolute;
+  top: 9.45%;
+  left: 40.05%;
+  width: 16.55%;
+  height: 8.65%;
+  overflow: hidden;
+  clip-path: polygon(2.5% 4%, 100% 0, 96.5% 98%, 0 100%);
+  border-radius: 12% 15% 14% 13%;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(121, 112, 111, 0.2), transparent 58%),
+    linear-gradient(150deg, #4a4743 0%, #363432 62%, #2d2b2a 100%);
+  box-shadow:
+    inset 0 0 1.2rem rgba(7, 5, 6, 0.56),
+    0 0 0.8rem rgba(255, 196, 242, 0.08);
+  transform: rotate(-0.45deg);
+}
+
+.contact-face::after {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.018) 0,
+    rgba(255, 255, 255, 0.018) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  content: "";
+  opacity: 0.55;
+}
+
+.contact-face-eye,
+.contact-face-smile-eye,
+.contact-face-mouth {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  color: #ffd4f3;
+  filter: drop-shadow(0 0 0.28rem rgba(255, 181, 234, 0.9));
+}
+
+.contact-face-eye {
+  top: 31%;
+  width: 19%;
+  height: 42%;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0.62rem rgba(255, 190, 237, 0.72);
+  transform-origin: center;
+  animation: contact-eye-cycle 7.2s infinite;
+}
+
+.contact-face-eye-left,
+.contact-face-smile-eye-left {
+  left: 23%;
+}
+
+.contact-face-eye-right,
+.contact-face-smile-eye-right {
+  right: 23%;
+}
+
+.contact-face-smile-eye {
+  top: 38%;
+  width: 20%;
+  height: 19%;
+  border-top: 0.18rem solid currentColor;
+  border-radius: 52% 52% 0 0;
+  opacity: 0;
+  transform: translateY(22%) scaleX(0.72);
+  animation: contact-smile-eye-cycle 7.2s infinite;
+}
+
+.contact-face-mouth {
+  bottom: 17%;
+  left: 50%;
+  width: 14%;
+  height: 13%;
+  border-bottom: 0.14rem solid currentColor;
+  border-radius: 0 0 50% 50%;
+  transform: translateX(-50%);
+  transform-origin: center bottom;
+  animation: contact-mouth-cycle 7.2s infinite;
+}
+
+@keyframes contact-eye-cycle {
+  0%, 12%, 17%, 41%, 46%, 59%, 82%, 100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  14%, 15%, 43%, 44% {
+    opacity: 1;
+    transform: scaleY(0.06);
+  }
+
+  63%, 78% {
+    opacity: 0;
+    transform: scaleY(0.12);
+  }
+}
+
+@keyframes contact-smile-eye-cycle {
+  0%, 59%, 82%, 100% {
+    opacity: 0;
+    transform: translateY(22%) scaleX(0.72);
+  }
+
+  64%, 78% {
+    opacity: 1;
+    transform: translateY(0) scaleX(1);
+  }
+}
+
+@keyframes contact-mouth-cycle {
+  0%, 59%, 82%, 100% {
+    width: 14%;
+    height: 13%;
+    transform: translateX(-50%) scaleY(1);
+  }
+
+  64%, 78% {
+    width: 27%;
+    height: 21%;
+    transform: translateX(-50%) scaleY(1.12);
+  }
+}
+
 .site-footer {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #17121b;
   padding: 1.5rem var(--page-pad) 2rem;
-  color: var(--mist-muted);
+  color: rgba(248, 243, 249, 0.62);
   font-size: 0.8rem;
 }
 
@@ -1052,21 +1296,62 @@ img {
   }
 
   .contact {
-    min-height: auto;
+    min-height: 100dvh;
+    align-items: start;
+    padding: 5.5rem 1.25rem 2rem;
+  }
+
+  .contact::after {
+    background:
+      linear-gradient(180deg, rgba(17, 12, 20, 0.48) 0%, rgba(17, 12, 20, 0.18) 45%, rgba(13, 9, 16, 0.82) 100%);
+  }
+
+  .contact-grid {
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.78), transparent 72%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.78), transparent 72%);
+  }
+
+  .contact-content {
+    width: 100%;
+  }
+
+  .contact-heading {
+    font-size: clamp(4.2rem, 23vw, 7rem);
+    line-height: 0.78;
+  }
+
+  .contact-heading span:last-child {
+    margin-left: 0.65em;
+  }
+
+  .contact-intro {
+    max-width: 24rem;
+    margin-top: 2.25rem;
+    font-size: 1rem;
   }
 
   .contact-links {
     width: 100%;
     flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1.75rem;
   }
 
   .contact-links > div,
   .contact-links a {
-    width: 100%;
+    width: min(100%, 22rem);
   }
 
   .contact-links a {
-    justify-content: center;
+    justify-content: flex-start;
+    background: rgba(24, 17, 28, 0.38);
+  }
+
+  .contact-character {
+    right: -26vw;
+    bottom: -13%;
+    width: min(94vw, 30rem);
+    opacity: 0.52;
   }
 }
 
@@ -1101,5 +1386,11 @@ img {
   .particle-text-fallback,
   .particle-text-loading {
     transition: none;
+  }
+
+  .contact-face-eye,
+  .contact-face-smile-eye,
+  .contact-face-mouth {
+    animation: none;
   }
 }
