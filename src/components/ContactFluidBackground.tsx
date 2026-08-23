@@ -30,16 +30,16 @@ type TrailParticle = {
 };
 
 const blobs: FluidBlob[] = [
-  { x: 0.18, y: 0.24, radius: 0.54, orbitX: 0.12, orbitY: 0.1, speed: 0.16, phase: 0.3, color: [113, 83, 116], opacity: 0.82 },
-  { x: 0.7, y: 0.2, radius: 0.48, orbitX: 0.14, orbitY: 0.08, speed: 0.13, phase: 2.1, color: [70, 89, 130], opacity: 0.75 },
-  { x: 0.78, y: 0.76, radius: 0.58, orbitX: 0.1, orbitY: 0.12, speed: 0.11, phase: 4.4, color: [145, 96, 134], opacity: 0.74 },
-  { x: 0.32, y: 0.8, radius: 0.5, orbitX: 0.08, orbitY: 0.14, speed: 0.14, phase: 5.7, color: [74, 58, 89], opacity: 0.9 },
+  { x: 0.18, y: 0.24, radius: 0.54, orbitX: 0.12, orbitY: 0.1, speed: 0.16, phase: 0.3, color: [183, 167, 214], opacity: 0.34 },
+  { x: 0.7, y: 0.2, radius: 0.48, orbitX: 0.14, orbitY: 0.08, speed: 0.13, phase: 2.1, color: [211, 196, 218], opacity: 0.38 },
+  { x: 0.78, y: 0.76, radius: 0.58, orbitX: 0.1, orbitY: 0.12, speed: 0.11, phase: 4.4, color: [152, 113, 154], opacity: 0.24 },
+  { x: 0.32, y: 0.8, radius: 0.5, orbitX: 0.08, orbitY: 0.14, speed: 0.14, phase: 5.7, color: [113, 83, 116], opacity: 0.16 },
 ];
 
 const trailColors: Color[] = [
-  [225, 205, 234],
-  [188, 137, 180],
-  [117, 149, 193],
+  [152, 113, 154],
+  [183, 167, 214],
+  [211, 196, 218],
 ];
 
 function rgba(color: Color, opacity: number) {
@@ -214,9 +214,9 @@ export default function ContactFluidBackground() {
       pointer.targetVy *= 0.84;
 
       context.globalCompositeOperation = "source-over";
-      context.fillStyle = "#17121b";
+      context.fillStyle = "#f4eff7";
       context.fillRect(0, 0, width, height);
-      context.globalCompositeOperation = "screen";
+      context.globalCompositeOperation = "source-over";
 
       blobs.forEach((blob, index) => {
         const wave = elapsed * blob.speed + blob.phase;
@@ -253,8 +253,8 @@ export default function ContactFluidBackground() {
           pointer.x * width,
           pointer.y * height,
           shortestSide * Math.min(0.27, 0.18 + velocity / 3200),
-          [225, 205, 234],
-          0.58,
+          [152, 113, 154],
+          0.26,
           Math.min(2.75, 1.18 + velocity / 145),
           Math.atan2(pointer.vy * height, pointer.vx * width),
         );
@@ -269,8 +269,8 @@ export default function ContactFluidBackground() {
         height * 0.45,
         Math.max(width, height) * 0.76,
       );
-      vignette.addColorStop(0, "rgba(18, 12, 22, 0)");
-      vignette.addColorStop(1, "rgba(12, 8, 15, 0.62)");
+      vignette.addColorStop(0, "rgba(73, 49, 79, 0)");
+      vignette.addColorStop(1, "rgba(73, 49, 79, 0.08)");
       context.fillStyle = vignette;
       context.fillRect(0, 0, width, height);
     };

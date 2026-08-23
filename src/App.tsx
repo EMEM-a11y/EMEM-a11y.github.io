@@ -22,12 +22,13 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
-  ChevronDown,
   Mail,
   Phone,
+  RotateCcw,
 } from "lucide-react";
 
-import financeVisual from "../images/project-finance-3d.jpg";
+import financeVisual from "../images/project-finance-real-cover.jpg";
+import financeDualTrackVisual from "../images/project-finance-real-dual-track.jpg";
 import qualityVisual from "../images/project-quality-3d.jpg";
 import attributionVisual from "../images/project-attribution-3d.jpg";
 import tripExperienceVisual from "../images/experience-trip.jpg";
@@ -36,7 +37,7 @@ import springCharacter from "../images/toonhub/spring-character.png";
 import summerCharacter from "../images/toonhub/summer-character.png";
 import autumnCharacter from "../images/toonhub/autumn-character.png";
 import winterCharacter from "../images/toonhub/winter-character.png";
-import contactCharacter from "../images/about-computer-character.png";
+import contactCharacter from "../images/about-computer-character-half-white-v4.png";
 import jobStoryOne from "../images/job-story/scene-01-campus.png";
 import jobStoryTwo from "../images/job-story/scene-02-social-feed.png";
 import jobStoryThree from "../images/job-story/scene-03-resume.png";
@@ -50,6 +51,7 @@ import jobStoryTen from "../images/job-story/scene-10-exhausted.png";
 import jobStoryEleven from "../images/job-story/scene-11-reset.png";
 import jobStoryTwelve from "../images/job-story/scene-12-next-chapter.png";
 import resumeUrl from "../files/李聪-27届.pdf?url";
+import GlobalCursorTrail from "./components/GlobalCursorTrail";
 
 const ParticleText = lazy(() => import("./components/ParticleText"));
 const ContactFluidBackground = lazy(() => import("./components/ContactFluidBackground"));
@@ -70,6 +72,7 @@ const internships = [
     period: "2026.06-2026.09",
     image: tripExperienceVisual,
     alt: "蓝色旅行主题插画，呈现携程集团去哪儿旅行的实习经历",
+    summary: "面向公司多业务线的 AI 提效需求，开展业务调研与可行性评估，拆解业务流程并设计产品方案，推动 Demo 验证、数据与规则梳理、合规接入及效果迭代。制定 AI 工具合规使用 SOP 并开展培训，推动财务、内审团队约 40 人完成公司账户配置与规范使用。",
   },
   {
     company: "字节跳动｜懂车帝",
@@ -78,36 +81,68 @@ const internships = [
     period: "2025.11-2026.03",
     image: dongchediExperienceVisual,
     alt: "懂车帝虎仔与黄色汽车的品牌视觉，呈现字节跳动懂车帝的实习经历",
+    summary: "聚焦二手车收车履约与供应链场景，推进 B 端产品优化及 AI 能力建设，覆盖需求分析、PRD 与原型设计、方案评审、上线迭代、数据建设及 AI 归因落地；同步支持业务数据分析与线上问题响应。",
   },
 ];
 
 const projects = [
   {
-    company: "携程集团 / AI PRODUCT",
+    company: "去哪儿旅行 / AI PRODUCT",
     name: "国际机票财务月报 Agent",
+    role: "AI 产品经理（B 端）",
+    problem: "月报依赖人工跨表取数与规则处理，制作耗时，也难以继续进行多维下钻分析。",
+    action: "梳理报表口径与字段映射，设计取数、规则处理、模板生成和结果校验链路，推动合规接入与业务交付。",
     result: "约 10 分钟",
+    metricLabel: "单次出报",
     description: "单次成本低于 1 元，连续 4 个月端到端核验准确率 100%，方案已被国内机票复用。",
     image: financeVisual,
+    detailImage: financeDualTrackVisual,
+    detailAlt: "固定月报与动态分析两条工作路径汇入最终财务月报的写实办公场景",
     href: "projects/flight-finance-agent.html",
-    alt: "财务月报 Agent 的 3D 概念视觉",
+    alt: "机场办公室中核对财务月报与数据看板的写实工作场景",
+    isPersonal: false,
   },
   {
-    company: "携程集团 / AI QUALITY",
+    company: "去哪儿旅行 / AI QUALITY",
     name: "酒店 UPS 工单质检自动化",
+    role: "AI 产品经理（B 端）",
+    problem: "质检员需要逐单还原分散的服务记录，人工覆盖成本高，复杂规则也容易产生判断偏差。",
+    action: "将人工判断转为 Context Pack 和 AI 五级质检链路，通过金标、Bad Case 与 14 类场景规则持续迭代。",
     result: "19% → 75%",
+    metricLabel: "三轮准确率迭代",
     description: "三轮迭代完成 19%、60%、75% 的准确率提升，继续向 90% 上线标准优化。",
     image: qualityVisual,
     href: "projects/hotel-ups-quality.html",
     alt: "酒店 UPS 工单质检自动化的 3D 概念视觉",
+    isPersonal: false,
   },
   {
-    company: "字节跳动 / AI ATTRIBUTION",
+    company: "懂车帝 / AI ATTRIBUTION",
     name: "二手车收车侧 AI 智能归因",
+    role: "B 端产品经理",
+    problem: "收车战败节点分散，人工填写原因口径不一，难以支持规模化业务复盘与策略分析。",
+    action: "搭建数据聚合、原因识别与三级标签归因链路，梳理 CRM 触发、回写及异常重试规则，推动线上闭环。",
     result: "95%",
+    metricLabel: "500 条工单核验",
     description: "500 条工单人工核验一致率，单 Case 分析时间由约 20 分钟缩短至约 1 分钟。",
     image: attributionVisual,
     href: "projects/used-car-attribution.html",
     alt: "二手车收车侧 AI 智能归因的 3D 概念视觉",
+    isPersonal: false,
+  },
+  {
+    company: "个人项目 / AI CAREER TOOL",
+    name: "求职小助手",
+    role: "独立产品设计与开发",
+    problem: "求职信息散落在招聘平台、文档和聊天记录中，每次投递都要重复整理岗位、准备材料并追踪进度。",
+    action: "围绕岗位收集、JD 分析、简历匹配、投递准备与进度管理，完成需求梳理、产品方案、交互设计和功能实现。",
+    result: "持续迭代",
+    metricLabel: "当前状态",
+    description: "以自己的真实求职流程验证产品，后续将补充产品截图、使用反馈和关键迭代记录。",
+    image: jobStoryThree,
+    href: "projects/job-search-assistant.html",
+    alt: "求职小助手项目的求职材料整理场景插画",
+    isPersonal: true,
   },
 ];
 
@@ -136,6 +171,67 @@ function FadeIn({ children, className = "", delay = 0, x = 0, y = 30 }: FadeInPr
     >
       {children}
     </motion.div>
+  );
+}
+
+function InternshipCard({
+  internship,
+  index,
+}: {
+  internship: (typeof internships)[number];
+  index: number;
+}) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <FadeIn delay={index * 0.1}>
+      <article className={`internship-item${isFlipped ? " is-flipped" : ""}`}>
+        <button
+          type="button"
+          className="internship-flip-control"
+          aria-pressed={isFlipped}
+          aria-label={isFlipped ? `返回${internship.company}经历正面` : `查看${internship.company}工作概述`}
+          onClick={() => setIsFlipped((current) => !current)}
+        >
+          <span className="visually-hidden">{isFlipped ? "返回经历正面" : "查看工作概述"}</span>
+        </button>
+
+        <div className="internship-card-inner">
+          <div className="internship-face internship-front" aria-hidden={isFlipped}>
+            <img src={internship.image} alt={internship.alt} loading="lazy" />
+            <div className="internship-scrim" aria-hidden="true" />
+            <div className="internship-copy">
+              <p>{internship.period}</p>
+              <h3>{internship.company}</h3>
+              <span>{internship.division}</span>
+              <strong>{internship.role}</strong>
+            </div>
+            <span className="internship-flip-cue">
+              <RotateCcw aria-hidden="true" size={15} strokeWidth={1.8} />
+              工作概述
+            </span>
+          </div>
+
+          <div className="internship-face internship-back" aria-hidden={!isFlipped}>
+            <img src={internship.image} alt="" aria-hidden="true" />
+            <div className="internship-back-scrim" aria-hidden="true" />
+            <div className="internship-back-copy">
+              <span className="internship-back-label">工作概述</span>
+              <h3>{internship.company}</h3>
+              <p>{internship.summary}</p>
+              <div className="internship-back-meta">
+                <span>{internship.division}</span>
+                <strong>{internship.role}</strong>
+              </div>
+            </div>
+            <span className="internship-flip-cue">
+              <RotateCcw aria-hidden="true" size={15} strokeWidth={1.8} />
+              返回正面
+            </span>
+          </div>
+        </div>
+      </article>
+    </FadeIn>
   );
 }
 
@@ -298,109 +394,110 @@ function MovingGallery() {
   );
 }
 
-function ProjectCard({
+function ProjectStoryCard({
   project,
   index,
-  expanded,
-  onToggle,
 }: {
   project: (typeof projects)[number];
   index: number;
-  expanded: boolean;
-  onToggle: () => void;
 }) {
   const reduceMotion = useReducedMotion();
-  const detailsId = `project-details-${index + 1}`;
+  const [isMediaFlipped, setIsMediaFlipped] = useState(false);
 
   return (
-    <motion.div
-      layout
-      className={`project-card-shell${expanded ? " is-active" : ""}`}
-      transition={{ type: "spring", stiffness: 180, damping: 24 }}
+    <motion.article
+      className={`project-story-card${project.isPersonal ? " is-personal" : ""}`}
+      style={{ "--project-index": index } as CSSProperties}
+      initial={reduceMotion ? false : { opacity: 0, y: 44 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
     >
-      <motion.article
-        layout
-        className="project-card"
-        transition={{ type: "spring", stiffness: 180, damping: 24 }}
-      >
-        <button
-          className="project-card-header"
-          type="button"
-          aria-expanded={expanded}
-          aria-controls={detailsId}
-          onClick={onToggle}
-          onKeyDown={(event) => {
-            if (event.key === "Enter" || event.key === " ") {
-              event.preventDefault();
-              onToggle();
-            }
-          }}
-        >
-          <strong className="project-number">0{index + 1}</strong>
-          <div className="project-title">
-            <p>{project.company}</p>
-            <h3>{project.name}</h3>
+      <header className="project-story-header">
+        <strong className="project-story-number">0{index + 1}</strong>
+        <div className="project-story-meta">
+          <p>{project.company}</p>
+          <span>{project.role}</span>
+        </div>
+      </header>
+
+      <div className="project-story-body">
+        <div className="project-story-copy">
+          <h3>{project.name}</h3>
+          <div className="project-story-point">
+            <span>项目挑战</span>
+            <p>{project.problem}</p>
           </div>
-          <strong className="project-summary">{project.result}</strong>
-          <motion.span
-            className="project-toggle"
-            animate={reduceMotion ? undefined : { rotate: expanded ? 180 : 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 22 }}
-            aria-hidden="true"
-          >
-            <ChevronDown size={22} strokeWidth={1.8} />
-          </motion.span>
-        </button>
+          <div className="project-story-point">
+            <span>我的工作</span>
+            <p>{project.action}</p>
+          </div>
+        </div>
 
-        <AnimatePresence initial={false}>
-          {expanded && (
-            <motion.div
-              id={detailsId}
-              className="project-card-details"
-              initial={reduceMotion ? false : { opacity: 0, y: -14 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
-              transition={{ duration: 0.34, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="project-result">
-                <strong>{project.result}</strong>
-                <p>{project.description}</p>
-                <motion.a
-                  className="project-link"
-                  href={project.href}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  项目详情 <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.8} />
-                </motion.a>
-              </div>
+        {project.detailImage ? (
+          <figure className={`project-story-media has-flip${isMediaFlipped ? " is-flipped" : ""}`}>
+            <div className="project-media-toolbar">
+              <span>{isMediaFlipped ? "双链路方案" : "项目封面"}</span>
+              <button
+                type="button"
+                aria-label={isMediaFlipped ? "翻回财务月报项目封面" : "翻看财务月报双链路方案"}
+                aria-pressed={isMediaFlipped}
+                onClick={() => setIsMediaFlipped((current) => !current)}
+              >
+                <RotateCcw aria-hidden="true" size={15} strokeWidth={1.8} />
+                {isMediaFlipped ? "看封面" : "翻看方案"}
+              </button>
+            </div>
 
-              <div className="project-visual-grid">
-                <div className="project-visual-column">
-                  <img src={project.image} alt={`${project.alt}局部一`} loading="lazy" />
-                  <img src={project.image} alt={`${project.alt}局部二`} loading="lazy" />
+            <div className="project-media-flip-stage">
+              <div className="project-media-flip-inner">
+                <div className="project-media-face project-media-front">
+                  <img src={project.image} alt={project.alt} loading="lazy" />
                 </div>
-                <img className="project-visual-main" src={project.image} alt={project.alt} loading="lazy" />
+                <div className="project-media-face project-media-back">
+                  <img src={project.detailImage} alt={project.detailAlt} loading="lazy" />
+                  <figcaption>
+                    <strong>稳定 Workflow + 动态 Agent</strong>
+                    <span>固定月报按模板出报，临时问题自主分析，两条链路共享权限、拦截与人工重试。</span>
+                  </figcaption>
+                </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.article>
-    </motion.div>
+            </div>
+          </figure>
+        ) : (
+          <figure className="project-story-media">
+            <img src={project.image} alt={project.alt} loading="lazy" />
+          </figure>
+        )}
+      </div>
+
+      <footer className="project-story-result">
+        <div className="project-story-metric">
+          <span>{project.metricLabel}</span>
+          <strong>{project.result}</strong>
+        </div>
+        <p>{project.description}</p>
+        <motion.a
+          className="project-link"
+          href={project.href}
+          aria-label={`查看${project.name}完整项目详情`}
+          whileHover={reduceMotion ? undefined : { y: -2 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          查看完整项目详情 <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.8} />
+        </motion.a>
+      </footer>
+    </motion.article>
   );
 }
 
 function ProjectStack() {
-  const [activeProject, setActiveProject] = useState<number | null>(null);
-
   return (
     <div className="project-stack">
       {projects.map((project, index) => (
-        <ProjectCard
+        <ProjectStoryCard
           project={project}
           index={index}
-          expanded={activeProject === index}
-          onToggle={() => setActiveProject((current) => current === index ? null : index)}
           key={project.name}
         />
       ))}
@@ -488,13 +585,8 @@ function ContactFinale() {
           style={{ x: smoothHeadX, y: smoothHeadY, rotate: smoothHeadRotate }}
         >
           <img className="contact-character-head-image" src={contactCharacter} alt="" draggable={false} />
-          <div className="contact-face">
-            <span className="contact-face-eye contact-face-eye-left" />
-            <span className="contact-face-eye contact-face-eye-right" />
-            <span className="contact-face-smile-eye contact-face-smile-eye-left" />
-            <span className="contact-face-smile-eye contact-face-smile-eye-right" />
-            <span className="contact-face-mouth" />
-          </div>
+          <span className="contact-character-blink contact-character-blink-left" />
+          <span className="contact-character-blink contact-character-blink-right" />
         </motion.div>
       </motion.figure>
     </section>
@@ -504,6 +596,7 @@ function ContactFinale() {
 function App() {
   return (
     <div className="site-shell">
+      <GlobalCursorTrail />
       <a className="skip-link" href="#main">跳到主要内容</a>
 
       <main id="main">
@@ -554,18 +647,7 @@ function App() {
             </FadeIn>
             <div className="internship-list">
               {internships.map((internship, index) => (
-                <FadeIn key={internship.company} delay={index * 0.1}>
-                  <article className="internship-item">
-                    <img src={internship.image} alt={internship.alt} loading="lazy" />
-                    <div className="internship-scrim" aria-hidden="true" />
-                    <div className="internship-copy">
-                      <p>{internship.period}</p>
-                      <h3>{internship.company}</h3>
-                      <span>{internship.division}</span>
-                      <strong>{internship.role}</strong>
-                    </div>
-                  </article>
-                </FadeIn>
+                <InternshipCard key={internship.company} internship={internship} index={index} />
               ))}
             </div>
           </div>
@@ -575,7 +657,7 @@ function App() {
           <span className="anchor-target" id="experience" aria-hidden="true" />
           <FadeIn className="projects-heading">
             <h2 className="section-display section-heading">PROJECTS</h2>
-            <p>三段真实项目，展开查看问题、判断、行动与结果。</p>
+            <p>从业务问题出发，把 AI 能力做成可以落地、复用和持续迭代的产品方案。</p>
           </FadeIn>
           <ProjectStack />
         </section>
