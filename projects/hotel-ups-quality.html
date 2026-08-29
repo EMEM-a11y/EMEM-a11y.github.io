@@ -24,66 +24,96 @@
   <main class="case-main" id="main">
     <section class="case-hero">
       <div class="case-hero-copy reveal">
-        <p class="eyebrow">AI 质检 / 规则治理</p>
+        <p class="eyebrow">AI 质检 / 酒店业务</p>
         <h1>酒店 UPS 工单质检自动化</h1>
-        <p>把人工质检拆解为多源信息聚合、AI 五级判断和结果输出链路。</p>
+        <p>将分散的服务信息和人工判断规则产品化，搭建可复核的 AI 五级质检链路。</p>
       </div>
       <div class="case-highlight reveal" data-reveal-delay="1">
-        <strong>19% → 75%</strong>
-        <span>三轮迭代后的准确率变化</span>
+        <strong>19% → 60% → 75%</strong>
+        <span>五级组合准确率，当前仍在调优</span>
       </div>
     </section>
 
     <div class="case-meta-strip reveal">
-      <p><span>公司</span><strong>携程集团｜去哪儿旅行</strong></p>
-      <p><span>角色</span><strong>AI 产品经理（B 端）</strong></p>
-      <p><span>时间</span><strong>2026.06-至今</strong></p>
+      <p><span>我的角色</span><strong>独立负责酒店业务线产品推进</strong></p>
+      <p><span>评估范围</span><strong>700 条金标 / 14 类一级场景</strong></p>
+      <p><span>当前阶段</span><strong>生产链路跑通，尚未正式上线</strong></p>
     </div>
 
     <figure class="case-media reveal">
-      <img src="/assets/project-quality-3d-Bu5_oXio.jpg" alt="酒店 UPS 工单质检自动化的 3D 概念视觉">
-      <figcaption>概念视觉：多源工单穿过分层判断，形成可复核的质检结果。</figcaption>
+      <img src="/assets/project-quality-3d-Bu5_oXio.jpg" alt="酒店 UPS 工单质检自动化的项目场景示意图">
+      <figcaption>项目场景示意图，实际工单与业务数据未展示。</figcaption>
     </figure>
 
     <section class="case-section reveal">
-      <h2>问题背景</h2>
+      <h2>项目背景</h2>
       <div class="case-content">
-        <p>UPS 工单依赖质检员逐单查看分散记录，人工还原完整服务过程后再做判断。全量覆盖成本高，规则也容易因理解不同产生偏差。</p>
-        <h3>关键难点</h3>
+        <p>UPS 用于衡量用户满意度。对于低分、用户感知不满意的工单，质检团队需要复盘问题原因，为产品优化和客服培训提供依据。</p>
+        <p>原流程需要质检员从 IUCP 平台查看分散在工单、订单、录音、沟通、评价和履约模块中的信息，还原完整服务过程后，再根据业务规则完成 0 至 4 级归因。单个 Case 通常需要 30 分钟甚至更久，人工成本高，也难以实现全量覆盖。</p>
+        <h3>项目目标</h3>
         <ul>
-          <li>输入信息分散在 IUCP 等多个业务记录中。</li>
-          <li>不同场景存在适用、排除和冲突规则。</li>
-          <li>模型结果需要能被质检员解释和复核。</li>
+          <li>自动聚合多源信息，替代人工逐单查找和拼接上下文。</li>
+          <li>五级组合准确率达到 85%，各层级准确率达到 90% 以上。</li>
+          <li>单工单成本控制在 0.5 至 1 元，并支持后续规模化覆盖。</li>
         </ul>
       </div>
     </section>
 
     <section class="case-section reveal">
-      <h2>我的工作</h2>
+      <h2>产品方案</h2>
       <div class="case-content">
-        <p>我独立推进酒店线，把质检员的人工判断过程转成 Context Pack 和 AI 分层质检链路，并协同研发接入生产环境。</p>
+        <p>我协同业务还原人工质检流程，并按照输入、判断、输出完成产品化抽象，明确模型需要获取什么信息、按照什么顺序判断，以及结果需要包含哪些标签和证据。</p>
+        <h3>输入：Context Pack</h3>
+        <p>我设计了覆盖工单、订单、沟通、评价和履约信息的 Context Pack，将不同模块的数据按照质检逻辑聚合，为模型提供相对完整的服务上下文。</p>
+        <h3>判断：分层归因链路</h3>
+        <p>我与 Mentor 共同设计了事实提取、场景识别、投诉点拆分、末级原因判断、标签路径回溯和结果校验流程，让五级判断不再只依赖一段 Prompt。</p>
+        <h3>输出：可复核结果</h3>
+        <p>系统输出 0 至 4 级质检结果、场景标签和支持结论的关键证据，方便质检人员复核和继续定位问题。</p>
+      </div>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>全链路落地</h2>
+      <div class="case-content">
+        <p>我负责业务需求和产品逻辑，明确字段范围、信息组织方式、判断顺序和输出要求；研发负责数据接口与工程链路实现。双方持续联调，最终在生产环境中跑通完整流程。</p>
         <ol>
-          <li>梳理分散记录、模型输入范围和人工判断顺序。</li>
-          <li>设计自动取数、AI 五级判断、层级映射与结果输出链路。</li>
-          <li>结合人工金标和 Bad Case 补齐判断证据，统一 14 类一级场景规则。</li>
+          <li>输入 UPS 工单号并自动获取相关业务数据。</li>
+          <li>聚合多源信息，生成标准化 Context Pack。</li>
+          <li>调用 AI 完成五级判断和标签路径回溯。</li>
+          <li>输出质检等级、场景标签与关键证据。</li>
         </ol>
       </div>
     </section>
 
     <section class="case-section reveal">
-      <h2>迭代结果</h2>
+      <h2>效果调优</h2>
       <div class="case-content">
-        <p>经过三轮规则和证据迭代，准确率从 19% 提升到 60%，再提升到 75%。当前继续向 90% 的上线标准优化。</p>
-        <h3>我学到的</h3>
-        <p>质检自动化不是单纯调 Prompt。高质量的 Context Pack、规则边界、金标口径和 Bad Case 复盘共同决定模型上限。</p>
+        <p>项目一期五级组合准确率只有 19%。我没有直接把问题归结为模型能力，而是建立人工金标和 Bad Case 评估机制，从三个层面拆解错误来源。</p>
+        <h3>三层问题诊断</h3>
+        <ul>
+          <li>工程架构：模型是否获得了完整且正确的数据。</li>
+          <li>判断逻辑：五级判断顺序、标签路径和结果校验是否合理。</li>
+          <li>业务规则：标签适用、排除、冲突和归因优先级是否清晰。</li>
+        </ul>
+        <h3>关键发现</h3>
+        <p>一期主要瓶颈不是 Prompt，而是部分质检证据缺失，以及码表边界不清、标签规则不够结构化。模型无法还原完整服务过程，也难以稳定处理复杂场景。</p>
+        <h3>规则治理</h3>
+        <p>我基于覆盖 14 个一级场景的 700 条标准工单开展 3 轮调优，亲自完成 3 个场景的示范，补充适用条件、排除条件、冲突优先级和正反例；同时培训质检同学，并通过每日对齐推动其余 11 个场景完成梳理。对于争议规则，我组织质检与业务共同确认口径。</p>
       </div>
     </section>
 
     <section class="case-section reveal">
-      <h2>项目材料</h2>
+      <h2>结果与现状</h2>
       <div class="case-content">
-        <p>质检链路图、场景规则样例和迭代记录将在完成脱敏后补充。</p>
-        <div class="evidence-placeholder">材料待补充</div>
+        <p>经过数据源补齐、判断链路调整和规则治理，五级组合准确率从 19% 提升至 60%，随后进一步提升至 75%。</p>
+        <h3>当前进展</h3>
+        <ul>
+          <li>自动取数、Context Pack 组装、AI 归因和结果输出链路已经跑通。</li>
+          <li>依赖人工经验的判断规则被转化为可执行、可复用的标准。</li>
+          <li>项目尚未达到正式上线标准，仍在优化数据完整性、复杂场景规则和判断稳定性。</li>
+        </ul>
+        <h3>项目反思</h3>
+        <p>AI 质检落地的关键不是单纯优化 Prompt，而是将人工判断所依赖的数据、流程、规则和评估标准完整地产品化。产品经理也需要对真实效果负责，通过评估判断问题究竟来自数据、规则、工程还是模型，并推动相关团队持续迭代。</p>
       </div>
     </section>
 
