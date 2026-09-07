@@ -136,11 +136,12 @@ const projects = [
     role: "独立产品设计与开发",
     problem: "求职信息散落在招聘平台、文档和聊天记录中，每次投递都要重复整理岗位、准备材料并追踪进度。",
     action: "围绕岗位收集、JD 分析、简历匹配、投递准备与进度管理，完成需求梳理、产品方案、交互设计和功能实现。",
-    result: "持续迭代",
-    metricLabel: "当前状态",
-    description: "以自己的真实求职流程验证产品，后续将补充产品截图、使用反馈和关键迭代记录。",
+    result: "已上线",
+    metricLabel: "产品状态",
+    description: "OfferFlow 已上线，串联岗位、简历、训练、面试与求职进度，并继续基于真实求职流程迭代。",
     image: jobStoryThree,
     href: "projects/job-search-assistant.html",
+    liveHref: "https://emcalling.com/",
     alt: "求职小助手项目的求职材料整理场景插画",
     isPersonal: true,
   },
@@ -477,15 +478,30 @@ function ProjectStoryCard({
           <strong>{project.result}</strong>
         </div>
         <p>{project.description}</p>
-        <motion.a
-          className="project-link"
-          href={project.href}
-          aria-label={`查看${project.name}完整项目详情`}
-          whileHover={reduceMotion ? undefined : { y: -2 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          查看完整项目详情 <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.8} />
-        </motion.a>
+        <div className="project-story-actions">
+          <motion.a
+            className={`project-link${project.liveHref ? " is-secondary" : ""}`}
+            href={project.href}
+            aria-label={`查看${project.name}完整项目详情`}
+            whileHover={reduceMotion ? undefined : { y: -2 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            查看项目详情 <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.8} />
+          </motion.a>
+          {project.liveHref ? (
+            <motion.a
+              className="project-link"
+              href={project.liveHref}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`体验${project.name}在线产品（在新窗口打开）`}
+              whileHover={reduceMotion ? undefined : { y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              体验在线产品 <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.8} />
+            </motion.a>
+          ) : null}
+        </div>
       </footer>
     </motion.article>
   );

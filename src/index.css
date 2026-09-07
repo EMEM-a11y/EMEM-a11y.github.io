@@ -1050,6 +1050,13 @@ img {
   line-height: 1.55;
 }
 
+.project-story-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
 .project-link {
   display: inline-flex;
   min-height: 3rem;
@@ -1071,6 +1078,16 @@ img {
 .project-link:hover {
   background: transparent;
   color: var(--mist);
+}
+
+.project-link.is-secondary {
+  background: transparent;
+  color: var(--mist);
+}
+
+.project-link.is-secondary:hover {
+  background: var(--mist);
+  color: var(--ink-raised);
 }
 
 @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
@@ -1573,8 +1590,14 @@ img {
     font-size: 1.8rem;
   }
 
-  .project-link {
+  .project-story-actions {
     grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .project-link {
     width: 100%;
   }
 

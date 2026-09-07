@@ -1071,11 +1071,16 @@ html[data-theme="light"] .contact .hero-heading {
   text-wrap: balance;
 }
 
-.case-hero-copy > p:last-child {
+.case-hero-copy > p:last-child,
+.case-hero-summary {
   max-width: 680px;
   margin: 34px 0 0;
   color: var(--text-soft);
   font-size: clamp(17px, 1.7vw, 22px);
+}
+
+.case-live-link {
+  margin-top: 28px;
 }
 
 .case-highlight {
