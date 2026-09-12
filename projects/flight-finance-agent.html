@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="dark">
+<html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="国际机票财务月报 Agent 项目详情，李聪个人作品集。">
-  <meta name="theme-color" content="#0c0c0c">
+  <meta name="theme-color" content="#f4eff7">
   <link rel="icon" href="/assets/favicon-CMqHECk7.svg" type="image/svg+xml">
   <title>国际机票财务月报 Agent | 李聪</title>
-  <script>document.documentElement.dataset.theme = localStorage.getItem("portfolio-theme-v3") || "dark";</script>
   <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/assets/script-mp1uu6yi.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/script-CgQjTAQc.css">
-  <link rel="stylesheet" crossorigin href="/assets/finance-DR-sSJj2.css">
+  <script type="module" crossorigin src="/assets/script-CgPgJB0-.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/script-CiKt0f8q.css">
+  <link rel="stylesheet" crossorigin href="/assets/finance-CeRHI8kl.css">
 </head>
 <body class="case-body finance-case-body">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -19,21 +18,22 @@
     <a class="wordmark" href="../index.html">李聪</a>
     <div class="header-actions">
       <a class="case-back" href="../index.html#projects">返回项目列表</a>
-      <button class="theme-toggle" id="themeBtn" type="button">深色</button>
     </div>
   </header>
 
   <main class="finance-case-main" id="main">
     <section class="finance-hero">
       <div class="finance-hero-copy reveal">
-        <p class="finance-kicker">携程集团 / AI PRODUCT</p>
-        <h1>国际机票财务月报 Agent</h1>
+        <p class="finance-kicker">去哪儿旅行 / AI PRODUCT</p>
+        <h1>国际机票<br>财务月报 Agent</h1>
         <p class="finance-hero-intro">将人工 1 至 2 天的月报工作压缩到约 10 分钟，并沉淀为可被其他业务复用的完整出报链路。</p>
       </div>
 
       <figure class="finance-hero-media reveal" data-reveal-delay="1">
-        <img src="/assets/project-finance-real-cover-CCWmsDPw.jpg" alt="机场办公室中核对财务月报与数据看板的写实工作场景">
-        <figcaption>项目场景示意图，实际业务数据未展示。</figcaption>
+        <div class="finance-report-window">
+          <img src="/assets/report-output-D33V-n4W.jpg" alt="脱敏后的国际机票月报结果与差异校验截图">
+        </div>
+        <figcaption>月报产出：主站与海外站结果及差异校验（已脱敏）。</figcaption>
       </figure>
     </section>
 
@@ -43,7 +43,7 @@
         <strong>1 至 2 天<br>缩短到约 10 分钟</strong>
       </article>
       <article class="finance-outcome">
-        <span>端到端核验</span>
+        <span>月报端到端取数核验</span>
         <strong>连续 4 个月<br>准确率 100%</strong>
       </article>
       <article class="finance-outcome">
@@ -65,6 +65,18 @@
         <p>固定任务走验收链路，临时问题走自主分析链路，两者共享同一套数据口径和安全保障。</p>
       </header>
 
+      <div class="finance-flow-entry" aria-label="双链路共同入口">
+        <span>业务请求</span>
+        <strong>固定月报出报，或临时财务分析</strong>
+        <p>先识别任务类型，再进入对应链路。</p>
+      </div>
+
+      <div class="finance-flow-split" aria-hidden="true">
+        <span>稳定交付</span>
+        <strong>任务分流</strong>
+        <span>灵活分析</span>
+      </div>
+
       <div class="finance-dual-track">
         <article class="finance-track finance-track-fixed">
           <div class="finance-track-heading">
@@ -74,9 +86,11 @@
           </div>
           <ol class="finance-track-steps">
             <li>参数确认</li>
+            <li>固定 Prompt</li>
             <li>QBI 取数</li>
-            <li>模板生成</li>
+            <li>Excel 回填</li>
             <li>结果勾稽</li>
+            <li>上传交付</li>
           </ol>
         </article>
 
@@ -88,10 +102,11 @@
           </div>
           <ol class="finance-track-steps">
             <li>解析问题</li>
+            <li>加载出数工具</li>
             <li>规划分析</li>
             <li>生成 SQL</li>
             <li>调用 QBI</li>
-            <li>输出结论</li>
+            <li>输出表格与结论</li>
           </ol>
         </article>
       </div>
@@ -101,6 +116,11 @@
         <span>数据权限</span>
         <span>异常拦截</span>
         <span>人工重试</span>
+      </div>
+
+      <div class="finance-flow-output">
+        <span>统一输出</span>
+        <strong>月报文件、分析数据表与业务结论</strong>
       </div>
     </section>
 
@@ -132,12 +152,32 @@
     <section class="finance-proof reveal">
       <div class="finance-proof-copy">
         <h2>结果不止是更快，还要可验证、可使用、可复用。</h2>
-        <p>单次出报约 10 分钟，成本低于 1 元。连续 4 个月完成端到端取数核验，准确率为 100%。完成平台合规接入和业务交付后，国内机票正在复用整套 Agent 出报链路。</p>
+        <p>单次出报约 10 分钟，成本低于 1 元。连续 4 个月的月报端到端取数核验准确率为 100%，这一结果限定于已核验的月报范围。完成平台合规接入和业务交付后，国内机票正在复用整套 Agent 出报链路。</p>
       </div>
       <div class="finance-proof-summary">
         <p><span>效率</span><strong>1 至 2 天缩短到约 10 分钟</strong></p>
-        <p><span>可信度</span><strong>连续 4 个月端到端核验</strong></p>
+        <p><span>可信度</span><strong>连续 4 个月月报端到端核验</strong></p>
         <p><span>复用性</span><strong>国内机票复用整套链路</strong></p>
+      </div>
+    </section>
+
+    <section class="finance-evidence reveal">
+      <header class="finance-section-heading">
+        <h2>交付与核验</h2>
+        <p>业务反馈：已用于月报制作，支持下钻分析。</p>
+      </header>
+
+      <div class="finance-evidence-notes" aria-label="交付核验要点">
+        <article>
+          <span>自动回填</span>
+          <strong>保留公式与文本格式</strong>
+          <p>完成非零值写入后，继续核对来源系统、线下台账、聚合金额与公式完整性。</p>
+        </article>
+        <article>
+          <span>规则校准</span>
+          <strong>把业务口径转成可执行规则</strong>
+          <p>针对营销让利等易混淆字段，与业务确认归属后补充到月报调整规则。</p>
+        </article>
       </div>
     </section>
 

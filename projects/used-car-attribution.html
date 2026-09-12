@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="dark">
+<html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="二手车收车侧 AI 智能归因项目详情，李聪个人作品集。">
-  <meta name="theme-color" content="#0c0c0c">
+  <meta name="theme-color" content="#f4eff7">
   <title>二手车收车侧 AI 智能归因 | 李聪</title>
-  <script>document.documentElement.dataset.theme = localStorage.getItem("portfolio-theme-v3") || "dark";</script>
   <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/assets/script-mp1uu6yi.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/script-CgQjTAQc.css">
+  <script type="module" crossorigin src="/assets/script-CgPgJB0-.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/script-CiKt0f8q.css">
 </head>
 <body class="case-body">
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header">
     <a class="wordmark" href="../index.html">李聪</a>
     <div class="header-actions">
-      <a class="case-back" href="../index.html#experience">返回实习项目</a>
-      <button class="theme-toggle" id="themeBtn" type="button">深色</button>
+      <a class="case-back" href="../index.html#projects">返回项目列表</a>
     </div>
   </header>
 
@@ -25,12 +23,12 @@
     <section class="case-hero">
       <div class="case-hero-copy reveal">
         <p class="eyebrow">AI 归因 / CRM 产品化</p>
-        <h1>二手车收车侧 AI 智能归因</h1>
-        <p>自动聚合多源业务信息、识别战败原因，并形成业务复核与数据回流闭环。</p>
+        <h1>二手车收车侧<br>AI 智能归因</h1>
+        <p>自动聚合多源业务信息、识别战败原因，支撑业务复核与数据回流。</p>
       </div>
       <div class="case-highlight reveal" data-reveal-delay="1">
         <strong>95%</strong>
-        <span>500 条工单人工核验一致率</span>
+        <span>本次核验样本中，与人工判断的一致率</span>
       </div>
     </section>
 
@@ -40,9 +38,15 @@
       <p><span>时间</span><strong>2025.11-2026.03</strong></p>
     </div>
 
-    <figure class="case-media reveal">
-      <img src="/assets/project-attribution-3d-B3mqq23R.jpg" alt="二手车收车侧 AI 智能归因的 3D 概念视觉">
-      <figcaption>概念视觉：分散业务信号经过归因核心，沉淀为结构化原因标签。</figcaption>
+    <figure class="case-process reveal" aria-labelledby="attribution-flow-title">
+      <figcaption id="attribution-flow-title"><strong>让归因结果进入业务闭环</strong><span>基于项目方案重绘的归因链路</span></figcaption>
+      <ol class="case-flow">
+        <li><span>01</span><strong>聚合过程信息</strong><p>汇集收车链路中的多源业务记录。</p></li>
+        <li><span>02</span><strong>识别战败原因</strong><p>通过 Prompt 与 Workflow 组织判断。</p></li>
+        <li><span>03</span><strong>映射三级标签</strong><p>以统一口径输出结构化原因。</p></li>
+        <li><span>04</span><strong>复核与回写</strong><p>在 CRM 中完成结果复核和数据回流。</p></li>
+      </ol>
+      <p class="case-flow-note">CRM 接入规则覆盖任务触发、数据准入、结果回写与异常重试等 10 余项。</p>
     </figure>
 
     <section class="case-section reveal">
@@ -61,7 +65,7 @@
     <section class="case-section reveal">
       <h2>我的工作</h2>
       <div class="case-content">
-        <p>我负责 AI 归因链路、三级标签体系和 CRM 接入方案，推动能力从 Workflow 验证进入线上业务闭环。</p>
+        <p>我负责 AI 归因链路、三级标签体系和 CRM 接入方案，推进 Workflow 验证及 CRM 接入落地。</p>
         <ol>
           <li>用 Prompt + Workflow 搭建数据聚合、原因识别、标签归因和结果沉淀链路。</li>
           <li>设计三级归因标签，联合业务分析判断逻辑并完成效果调优。</li>
@@ -71,19 +75,35 @@
     </section>
 
     <section class="case-section reveal">
-      <h2>结果</h2>
+      <h2>关键方案</h2>
       <div class="case-content">
-        <p>联合业务核验 500 条工单，AI 归因与人工判断一致率达到 95%。单 Case 分析时间从约 20 分钟缩短到约 1 分钟。</p>
-        <h3>业务延伸</h3>
-        <p>结构化归因数据可以进一步支持战败复盘、流程优化和转化策略分析。相关业务机会从 1.0% 提升至 2.7%。</p>
+        <h3>用三级标签统一归因口径</h3>
+        <p>人工填写的原因难以直接比较，因此我将原因识别与标签映射串联，联合业务梳理各层标签定义与判断逻辑，让结果能够汇总分析。</p>
+        <div class="case-rule">
+          <h3>规则节选：回溯导致流失的原因</h3>
+          <p>如果员工跟进断档在先，并导致客户在等待期间将车售出，归因为“收车服务体验不足 / 跟进不及时”。“已出售”是最终状态，不能覆盖前面的服务问题。</p>
+          <ol>
+            <li>按时间戳整理跨渠道沟通记录。</li>
+            <li>依据原文证据，选择一个最贴近的原因。</li>
+            <li>输出归因说明，并附支持判断的沟通原文。</li>
+          </ol>
+          <p class="case-rule-source">依据原始项目规则整理，展示判断逻辑。</p>
+        </div>
+        <h3>将归因接入原有 CRM 流程</h3>
+        <p>围绕任务触发、数据准入、结果回写和异常重试明确产品规则，为归因结果的复核、回写和持续迭代制定接入方案。</p>
       </div>
     </section>
 
     <section class="case-section reveal">
-      <h2>项目材料</h2>
+      <h2>验证结果</h2>
       <div class="case-content">
-        <p>归因链路、标签体系和 CRM 交互样例将在完成脱敏后补充。</p>
-        <div class="evidence-placeholder">材料待补充</div>
+        <p>联合业务进行人工核验，AI 最终单选标签与人工确认标签的一致率为 95%，按一致条数占总核验条数计算。结果限定于本次核验样本，不代表线上全量统计。</p>
+        <div class="case-comparison" aria-label="单 Case 分析耗时对比">
+          <p><span>原人工分析</span><strong>约 20 分钟</strong></p>
+          <p><span>使用 AI 归因</span><strong>约 1 分钟</strong></p>
+        </div>
+        <h3>业务价值</h3>
+        <p>将分散的战败原因沉淀为结构化数据，为业务复盘、流程优化和转化策略分析提供依据。</p>
       </div>
     </section>
 
